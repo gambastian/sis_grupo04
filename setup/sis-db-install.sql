@@ -2,7 +2,7 @@
 
 -- DROP ROLE stampidia;
 
-CREATE ROLE sis_role LOGIN ENCRYPTED PASSWORD '37fb11bf3ee72586152c895c1a63f82f' 
+CREATE ROLE sis_role LOGIN ENCRYPTED PASSWORD 'md5db8f512bbcdbcb322492d62501b4cb5a' 
 VALID UNTIL 'infinity';
    
 --Database: stampidia
