@@ -1,5 +1,3 @@
--- Role: stampidia clave: 1234567890
-
 -- DROP ROLE stampidia;
 
 CREATE ROLE sis_role LOGIN ENCRYPTED PASSWORD 'md5db8f512bbcdbcb322492d62501b4cb5a' 
