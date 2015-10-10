@@ -3,7 +3,7 @@
 Proyecto SIS para la integración de entidades médicas y pacientes.
 
 
-### ¿De qué se trata? ###
+## ¿De qué se trata? ###
 
 * Proyecto para validacion de tácticas y estílos de arquitectura para la clase de ARQUITECTURAS ÁGILES DE SOFTWARE
 * Experimentos para validación de tacticas de latencia, concurrencia y disponibilidad
@@ -17,8 +17,27 @@ Proyecto SIS para la integración de entidades médicas y pacientes.
 
 ###Creación de la base de datos###
 
-**NOTA:** Este usuario de base de datos debe tener todos los permisos asignados para poder crear las tablas y sus demás dependencias. y se asume que el comando psql esta configurado en las variables de entorno.
+>**NOTA:** Este usuario de base de datos debe tener todos los permisos asignados para poder crear las tablas y sus demás dependencias. y se asume que el comando psql esta configurado en las variables de entorno.
 
-1. Desde la consola de comandos, ubicarse dentro de la carpeta **setup** de este proyecto y ejecute el siguiente comando. (es posible que le pida la clave más de 1 vez)
+- Desde la consola de comandos, ubicarse dentro de la carpeta **setup** de este proyecto y ejecute el siguiente comando. (es posible que le pida la clave más de 1 vez)
 
-**psql -U postgres -W -f sis-db-install.sql**
+```
+psql -U postgres -W -f sis-db-install.sql
+psql -U postgres -W -f sis-db-uninstall.sql
+```
+
+> **NOTA:** La aplicación utilizará la siguiente base de datos: jdbc:postgresql://localhost:5432/sis
+
+###Eliminación de la base de datos
+
+- Desde la consola de comandos, ubicarse dentro de la carpeta **setup** de este proyecto y ejecute el siguiente comando. (es posible que le pida la clave más de 1 vez)
+
+```
+psql -U postgres -W -f sis-db-uninstall.sql
+```
+
+##Autores
+* Sebastian Gamba Pinilla
+* German Dario Bernal
+* German Leonardo Rojas
+* Diego Fernando Romero
