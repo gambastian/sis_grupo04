@@ -23,7 +23,7 @@ Proyecto SIS para la integración de entidades médicas y pacientes.
 
 ```
 psql -U postgres -W -f sis-db-install.sql
-psql -U postgres -W -f sis-db-uninstall.sql
+psql -U postgres -W -f sis-db-inserts.sql
 ```
 
 > **NOTA:** La aplicación utilizará la siguiente base de datos: jdbc:postgresql://localhost:5432/sis

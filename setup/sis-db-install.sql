@@ -33,7 +33,7 @@ CREATE TABLE patient (
 );
 ALTER TABLE patient OWNER TO sis_role;
 CREATE SEQUENCE patient_id_seq
-    START WITH 1
+    START WITH 10
     INCREMENT BY 1
     NO MINVALUE
     NO MAXVALUE
@@ -51,7 +51,7 @@ CREATE TABLE pathology (
 );
 ALTER TABLE pathology OWNER TO sis_role;
 CREATE SEQUENCE pathology_id_seq
-    START WITH 1
+    START WITH 10
     INCREMENT BY 1
     NO MINVALUE
     NO MAXVALUE
@@ -69,7 +69,7 @@ CREATE TABLE patient_pathology (
 ALTER TABLE patient_pathology OWNER TO sis_role;
 CREATE UNIQUE INDEX patient_pathology_idx ON patient_pathology (patient_id);
 CREATE SEQUENCE patient_pathology_id_seq
-    START WITH 1
+    START WITH 10
     INCREMENT BY 1
     NO MINVALUE
     NO MAXVALUE
@@ -84,7 +84,7 @@ CREATE TABLE allergy (
 );
 ALTER TABLE allergy OWNER TO sis_role;
 CREATE SEQUENCE allergy_id_seq
-    START WITH 1
+    START WITH 10
     INCREMENT BY 1
     NO MINVALUE
     NO MAXVALUE
@@ -102,7 +102,7 @@ CREATE TABLE patient_allergy (
 ALTER TABLE patient_allergy OWNER TO sis_role;
 CREATE UNIQUE INDEX patient_allergy_idx ON patient_allergy (patient_id);
 CREATE SEQUENCE patient_allergy_id_seq
-    START WITH 1
+    START WITH 10
     INCREMENT BY 1
     NO MINVALUE
     NO MAXVALUE
@@ -119,7 +119,7 @@ CREATE TABLE medical_procedure (
 );
 ALTER TABLE medical_procedure OWNER TO sis_role;
 CREATE SEQUENCE medical_procedure_id_seq
-    START WITH 1
+    START WITH 10
     INCREMENT BY 1
     NO MINVALUE
     NO MAXVALUE
@@ -137,7 +137,7 @@ CREATE TABLE diagnostic_image (
 );
 ALTER TABLE diagnostic_image OWNER TO sis_role;
 CREATE SEQUENCE diagnostic_image_id_seq
-    START WITH 1
+    START WITH 10
     INCREMENT BY 1
     NO MINVALUE
     NO MAXVALUE
