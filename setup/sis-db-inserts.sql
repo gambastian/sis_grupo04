@@ -29,3 +29,14 @@ INSERT INTO patient_allergy VALUES (1,6,4);
 INSERT INTO patient_allergy VALUES (2,3,5);
 INSERT INTO patient_allergy VALUES (3,1,1);
 INSERT INTO patient_allergy VALUES (4,2,1);
+
+-- MEDICAL PROCEDURE
+INSERT INTO medical_procedure VALUES (1,'Bullet removal',2,to_date('2010-03-11','YYYY-MM-DD'));
+INSERT INTO medical_procedure VALUES (2,'Sharpnel removal',1,to_date('2011-04-21','YYYY-MM-DD'));
+INSERT INTO medical_procedure VALUES (3,'Weapon X Project',4,to_date('2011-01-21','YYYY-MM-DD'));
+INSERT INTO medical_procedure VALUES (4,'Liposuction',6,to_date('2011-08-21','YYYY-MM-DD'));
+
+-- DIAGNOSTIC IMAGE
+INSERT INTO diagnostic_image VALUES (1,'Radiography Torax',1,'RADIOGRAPHY',to_date('2011-08-21','YYYY-MM-DD')); 
+INSERT INTO diagnostic_image VALUES (2,'ECG',1,'ECG',to_date('2011-08-22','YYYY-MM-DD'));
+INSERT INTO diagnostic_image VALUES (3,'Ecography',3,'ECOGRAPHY',to_date('2012-08-21','YYYY-MM-DD'));  
