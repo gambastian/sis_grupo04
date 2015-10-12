@@ -1,6 +1,7 @@
 package controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import model.Patient;
 import play.*;
 import play.mvc.*;
 

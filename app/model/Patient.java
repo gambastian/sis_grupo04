@@ -5,6 +5,7 @@ import com.avaje.ebean.Model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -14,6 +15,7 @@ import java.util.Date;
  * @author Sebastian Gamba Pinilla
  */
 @Entity
+@Table(name = "patient")
 public class Patient extends Model implements Serializable {
 
 	private static final long serialVersionUID = 1L;
