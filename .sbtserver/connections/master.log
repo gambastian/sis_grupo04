@@ -1,16 +1,31 @@
-New log file opened at Fri Oct 09 09:00:30 COT 2015 by 2936@SEBASTIAN-VAIO
-Taking next connection to: 51159
-New client attempting to connect on port: 51160-51159
-  Address = /10.100.12.6:51159
-This client on port 51160 has uuid dd102b52-daf1-4ec5-a83c-8d197d9a6acc configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
-Connected Clients: play-fork-run-dd102b52-daf1-4ec5-a83c-8d197d9a6acc
-Taking next connection to: 51159
+New log file opened at Mon Oct 12 14:43:04 COT 2015 by 3664@SEBASTIAN-VAIO
+Taking next connection to: 64877
+New client attempting to connect on port: 64878-64877
+  Address = /192.168.0.22:64877
+This client on port 64878 has uuid e8d5bd9a-3ff4-4c73-9e22-65a466faa410 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: play-fork-run-e8d5bd9a-3ff4-4c73-9e22-65a466faa410
+Taking next connection to: 64877
 Checking to see if clients are empty...
 We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 51159
+Taking next connection to: 64877
 Checking to see if clients are empty...
-No non-daemon clients connected after 3 min. Shutting down.
-Server socket thread exiting.
-0 clients open, will close them...
-All client sockets have been closed.
-Closing the 2936@SEBASTIAN-VAIO logs at Fri Oct 09 09:06:32 COT 2015, goodbye.
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 64877
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 64877
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 64877
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 64877
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 64877
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 64877
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 64877

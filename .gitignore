@@ -1,8 +1,18 @@
-logs
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+
 target
-/.idea
-/.idea_modules
-/.classpath
-/.project
-/.settings
-/RUNNING_PID
+target/classes
+.DS_STORE
+.idea/
+.sbtserver/*
+.settings/
+sis-experiments.iml
+.classpath
+.project
