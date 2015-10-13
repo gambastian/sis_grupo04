@@ -38,4 +38,5 @@ public class Allergy extends Model implements Serializable{
     public void setName(String name) {
         this.name = name;
     }
+    public static Finder<Integer, Allergy> find = new Finder<Integer,Allergy>(Allergy.class);
 }

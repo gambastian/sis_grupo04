@@ -7,3 +7,6 @@ GET    /patient/:id                @controllers.MedicalHistoryController.getPati
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+#Cron
+GET 	/execute					@controllers.ScheduleToMongo.execute()
