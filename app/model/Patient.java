@@ -37,6 +37,17 @@ public class Patient extends Model implements Serializable {
 	@Column(name = "active")
 	private boolean active;
 
+	public Patient(Integer id, String name, String login, Date birthDate, String bloodType, Integer heightCm, Integer weightGr, boolean active) {
+		this.id = id;
+		this.name = name;
+		this.login = login;
+		this.birthDate = birthDate;
+		this.bloodType = bloodType;
+		this.heightCm = heightCm;
+		this.weightGr = weightGr;
+		this.active = active;
+	}
+
 	public Integer getId() {
 		return id;
 	}
