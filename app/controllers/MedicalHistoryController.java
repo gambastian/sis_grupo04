@@ -23,7 +23,7 @@ public class MedicalHistoryController extends Controller {
      * Obtains the medical history using patient id as key
      * @return the Medical history as JSON
      */
-    public static Result getPatientHistory(Integer id){
+    public Result getPatientHistory(Integer id){
         JsonNode json = request().body().asJson();
         if(json == null) {
             return badRequest("Expecting Json input");
