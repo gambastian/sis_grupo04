@@ -1,4 +1,4 @@
-package model.dao;
+package models.dao;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;

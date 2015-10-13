@@ -1,4 +1,4 @@
-package model;
+package models;
 
 import com.avaje.ebean.Model;
 
@@ -9,21 +9,21 @@ import javax.persistence.Table;
 import java.io.Serializable;
 
 /**
- * POJO class to store Pathology's information
+ * POJO class to store Allergy's information
  *
  * @author Sebastian Gamba Pinilla
  */
+
+
+@Table(name = "allergy")
 @Entity
-@Table(name = "pathology")
-public class Pathology extends Model implements Serializable{
+public class Allergy extends Model implements Serializable{
 
     @Id
     @Column(name = "id")
     private Integer id;
     @Column(name = "name")
     private String name;
-    @Column(name = "triage")
-    private Integer triage;
 
     public Integer getId() {
         return id;
@@ -40,12 +40,5 @@ public class Pathology extends Model implements Serializable{
     public void setName(String name) {
         this.name = name;
     }
-
-    public Integer getTriage() {
-        return triage;
-    }
-
-    public void setTriage(Integer triage) {
-        this.triage = triage;
-    }
+    public static Finder<Integer, Allergy> find = new Finder<Integer,Allergy>("secundary", Integer.class, Allergy.class);
 }

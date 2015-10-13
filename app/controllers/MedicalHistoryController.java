@@ -1,8 +1,8 @@
 package controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import model.MedicalHistory;
-import model.Patient;
+import models.MedicalHistory;
+import models.Patient;
 import persistence.IMedicalHistoryDao;
 import persistence.impl.MedicalHistoryDaoImpl;
 import play.libs.Json;

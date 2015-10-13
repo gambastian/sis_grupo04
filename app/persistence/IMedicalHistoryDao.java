@@ -1,6 +1,6 @@
 package persistence;
 
-import model.MedicalHistory;
+import models.MedicalHistory;
 
 /**
  * Interface contract for medical history methods

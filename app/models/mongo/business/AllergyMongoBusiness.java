@@ -1,8 +1,8 @@
-package model.mongo.business;
+package models.mongo.business;
 
-import model.dao.MongoManager;
+import models.dao.MongoManager;
 import org.bson.types.ObjectId;
-import model.mongo.AllergyMongo;
+import models.mongo.AllergyMongo;
 import org.jongo.MongoCollection;
 
 /**
@@ -16,6 +16,9 @@ public class AllergyMongoBusiness {
 
     public static void insert(AllergyMongo allergy) {
         allergies().save(allergy);
+    }
+    public static void cleanAll() {
+        allergies().remove("{}");
     }
     
     public static  Iterable<AllergyMongo> findAll() {

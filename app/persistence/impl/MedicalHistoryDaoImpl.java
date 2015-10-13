@@ -1,7 +1,7 @@
 package persistence.impl;
 
 import com.avaje.ebean.Model;
-import model.MedicalHistory;
+import models.MedicalHistory;
 import persistence.IMedicalHistoryDao;
 
 /**

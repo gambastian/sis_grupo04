@@ -1,4 +1,4 @@
-package model;
+package models;
 
 import com.avaje.ebean.Model;
 
@@ -111,4 +111,5 @@ public class Patient extends Model implements Serializable {
 	public void setActive(boolean active) {
 		this.active = active;
 	}
-}
+	public static Finder<Integer, Patient> find = new Finder<Integer,Patient>("secundary", Integer.class, Patient.class);
+}	

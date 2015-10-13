@@ -1,7 +1,7 @@
-package model.business;
+package models.business;
 
 import com.avaje.ebean.Model;
-import model.Allergy;
+import models.Allergy;
 import java.util.List;
 
 /**

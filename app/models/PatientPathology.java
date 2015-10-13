@@ -1,4 +1,4 @@
-package model;
+package models;
 
 import com.avaje.ebean.Model;
 
@@ -9,21 +9,21 @@ import javax.persistence.Table;
 import java.io.Serializable;
 
 /**
- * POJO class to store patients and allergies relation
+ * POJO class to store patients and pathologies relation
  *
  * @author Sebastian Gamba Pinilla
  */
 @Entity
-@Table(name = "patient_allergy")
-public class PatientAllergy extends Model implements Serializable {
+@Table(name = "patient_pathology")
+public class PatientPathology extends Model implements Serializable {
 
     @Id
     @Column(name = "id")
     private Integer id;
     @Column(name = "patient_id")
     private Integer patientId;
-    @Column(name = "allergy_id")
-    private Integer allergyId;
+    @Column(name = "pathology_id")
+    private Integer pathologyId;
 
     public Integer getId() {
         return id;
@@ -41,11 +41,11 @@ public class PatientAllergy extends Model implements Serializable {
         this.patientId = patientId;
     }
 
-    public Integer getAllergyId() {
-        return allergyId;
+    public Integer getPathologyId() {
+        return pathologyId;
     }
 
-    public void setAllergyId(Integer allergyId) {
-        this.allergyId = allergyId;
+    public void setPathologyId(Integer pathologyId) {
+        this.pathologyId = pathologyId;
     }
 }

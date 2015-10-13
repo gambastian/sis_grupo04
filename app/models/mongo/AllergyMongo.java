@@ -1,7 +1,7 @@
-package model.mongo;
+package models.mongo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import model.dao.MongoManager;
+import models.dao.MongoManager;
 import org.bson.types.ObjectId;
 import org.jongo.MongoCollection;
 import java.util.Date;
@@ -12,13 +12,10 @@ import java.util.Date;
  * @author Germán Rojas
  */
 
-public class DiagnosticImageMongo {
+public class AllergyMongo {
 
     @JsonProperty("_id")
     public ObjectId id;
     public Integer id_ext;
     public String name;
-    public Integer patientId;
-    public String type;
-    public Date date;
 }

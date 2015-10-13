@@ -1,7 +1,7 @@
-package model.mongo;
+package models.mongo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import model.dao.MongoManager;
+import models.dao.MongoManager;
 import org.bson.types.ObjectId;
 import org.jongo.MongoCollection;
 import java.util.Date;
