@@ -1,14 +1,33 @@
-New log file opened at Mon Oct 12 19:37:52 COT 2015 by 8580@SEBASTIAN-VAIO
-Taking next connection to: 52184
-New client attempting to connect on port: 52185-52184
-  Address = /192.168.0.22:52184
-This client on port 52185 has uuid a7a80c29-65bb-44f7-af08-5ec0ea5e1834 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
-Connected Clients: play-fork-run-a7a80c29-65bb-44f7-af08-5ec0ea5e1834
-Taking next connection to: 52184
+New log file opened at Mon Oct 12 20:06:58 COT 2015 by 6676@SEBASTIAN-VAIO
+Taking next connection to: 52594
+New client attempting to connect on port: 52610-52594
+  Address = /192.168.0.22:52594
+Handshake exception on socket: 52610
+sbt.impl.ipc.HandshakeException: Unable to perform handshake
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
+	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
+	at sbt.server.SbtServerSocketHandler$$anon$1.run(SbtServerSocketHandler.scala:43)
+Caused by: java.net.SocketException: Software caused connection abort: recv failed
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+	at java.net.SocketInputStream.read(SocketInputStream.java:170)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265)
+	at java.io.DataInputStream.readInt(DataInputStream.java:387)
+	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
+	... 2 more
+Taking next connection to: 52594
+New client attempting to connect on port: 52611-52594
+  Address = /192.168.0.22:52594
+This client on port 52611 has uuid 5c7bf508-3372-44f9-afde-c996549b9995 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: play-fork-run-5c7bf508-3372-44f9-afde-c996549b9995
+Taking next connection to: 52594
 Checking to see if clients are empty...
 No non-daemon clients connected after 3 min. Shutting down.
 1 daemon clients are connected.
 Server socket thread exiting.
 1 clients open, will close them...
 All client sockets have been closed.
-Closing the 8580@SEBASTIAN-VAIO logs at Mon Oct 12 19:41:07 COT 2015, goodbye.
+Closing the 6676@SEBASTIAN-VAIO logs at Mon Oct 12 20:12:55 COT 2015, goodbye.

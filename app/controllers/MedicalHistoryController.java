@@ -18,32 +18,27 @@ import java.util.Date;
  */
 public class MedicalHistoryController extends Controller {
 
-    private static IMedicalHistoryDao historyDao = new MedicalHistoryDaoImpl();
+    private IMedicalHistoryDao historyDao = new MedicalHistoryDaoImpl();
     /**
      * Obtains the medical history using patient id as key
      * @return the Medical history as JSON
      */
-    public static Result getPatientHistory(Integer id){
-        JsonNode json = request().body().asJson();
-        if(json == null) {
-            return badRequest("Expecting Json input");
-        } else {
-            Integer patientId = json.findPath("id").intValue();
-            if(patientId == null){
-                return badRequest("Invalid input parameters");
-            }
+    public  Result getPatientHistory(Integer id){
 
-            // TODO :: traer el batch segun el id de paciente, convertir ese batch en un objeto MedicalHistory
-            MedicalHistory history = new MedicalHistory();
-            final Patient dummyPatient = new Patient(1,"Anthony Stark","ironman",new Date(),"BN",177,82000,true);
-            history.setPatient(dummyPatient);
-
-            final MedicalHistory inMemoryHistory = historyDao.obtainMedicalHistoryByPatientId(history.getPatient().getId());
-
-            addInMemoryInformation(history, inMemoryHistory);
-
-            return ok(Json.toJson(history));
+        if(id == null){
+            return badRequest("Invalid input parameters");
         }
+
+        // TODO :: traer el batch segun el id de paciente, convertir ese batch en un objeto MedicalHistory
+        MedicalHistory history = new MedicalHistory();
+        final Patient dummyPatient = new Patient(1,"Anthony Stark","ironman",new Date(),"BN",177,82000,true);
+        history.setPatient(dummyPatient);
+
+        final MedicalHistory inMemoryHistory = historyDao.obtainMedicalHistoryByPatientId(history.getPatient().getId());
+
+        addInMemoryInformation(history, inMemoryHistory);
+
+        return ok(Json.toJson(history));
     }
 
     /**
@@ -52,7 +47,7 @@ public class MedicalHistoryController extends Controller {
      * @param patientMedicalHistory
      * @param inMemoryMedicalHistory
      */
-    private static void addInMemoryInformation(MedicalHistory patientMedicalHistory, MedicalHistory inMemoryMedicalHistory){
+    private void addInMemoryInformation(MedicalHistory patientMedicalHistory, MedicalHistory inMemoryMedicalHistory){
         patientMedicalHistory.getAllergies().addAll(inMemoryMedicalHistory.getAllergies());
         patientMedicalHistory.getDiagnosticImages().addAll(inMemoryMedicalHistory.getDiagnosticImages());
         patientMedicalHistory.getMedicalProcedures().addAll(inMemoryMedicalHistory.getMedicalProcedures());
