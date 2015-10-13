@@ -23,7 +23,6 @@ public class MedicalHistoryController extends Controller {
      * Obtains the medical history using patient id as key
      * @return the Medical history as JSON
      */
-<<<<<<< HEAD
     public Result getPatientHistory(Integer id){
         JsonNode json = request().body().asJson();
         if(json == null) {
@@ -44,12 +43,6 @@ public class MedicalHistoryController extends Controller {
             addInMemoryInformation(history, inMemoryHistory);
 
             return ok(Json.toJson(history));
-=======
-    public  Result getPatientHistory(Integer id){
-
-        if(id == null){
-            return badRequest("Invalid input parameters");
->>>>>>> 85d51da99948edb74993858a1bef0d8a5a2b774c
         }
 
         // TODO :: traer el batch segun el id de paciente, convertir ese batch en un objeto MedicalHistory
