@@ -1,6 +1,7 @@
 package persistence.impl;
 
 import com.avaje.ebean.Model;
+import model.MedicalHistory;
 import persistence.IMedicalHistoryDao;
 
 /**
@@ -11,7 +12,8 @@ import persistence.IMedicalHistoryDao;
 public class MedicalHistoryDaoImpl implements IMedicalHistoryDao {
 
     @Override
-    public void obtainMedicalHistoryByPatientId(Integer patientId) {
-
+    public MedicalHistory obtainMedicalHistoryByPatientId(Integer patientId) {
+        // TODO ::  traer la informacion de la base de datos de memoria
+        return new MedicalHistory();
     }
 }

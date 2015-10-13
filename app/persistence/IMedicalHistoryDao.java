@@ -1,5 +1,7 @@
 package persistence;
 
+import model.MedicalHistory;
+
 /**
  * Interface contract for medical history methods
  *
@@ -7,5 +9,5 @@ package persistence;
  */
 public interface IMedicalHistoryDao {
 
-    void obtainMedicalHistoryByPatientId(Integer patientId);
+    MedicalHistory obtainMedicalHistoryByPatientId(Integer patientId);
 }
