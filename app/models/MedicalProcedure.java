@@ -1,11 +1,9 @@
 package models;
 
 import com.avaje.ebean.Model;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -21,10 +19,20 @@ public class MedicalProcedure extends Model implements Serializable {
     private Integer id;
     @Column(name = "name")
     private String name;
-    @Column(name = "patient_id")
-    private Integer patientId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "patient_id", nullable = false)
+    private Patient patient;
     @Column(name = "date")
     private Date date;
+
+    public static Finder<Integer, MedicalProcedure> findH2 = new Finder<Integer,MedicalProcedure>(MedicalProcedure.class);
+
+    public MedicalProcedure(Integer id, String name, Patient patient, Date date) {
+        this.id = id;
+        this.name = name;
+        this.patient = patient;
+        this.date = date;
+    }
 
     public Integer getId() {
         return id;
@@ -42,12 +50,13 @@ public class MedicalProcedure extends Model implements Serializable {
         this.name = name;
     }
 
-    public Integer getPatientId() {
-        return patientId;
+    @JsonIgnore
+    public Patient getPatient() {
+        return patient;
     }
 
-    public void setPatientId(Integer patientId) {
-        this.patientId = patientId;
+    public void setPatient(Patient patient) {
+        this.patient = patient;
     }
 
     public Date getDate() {

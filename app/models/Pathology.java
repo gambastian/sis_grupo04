@@ -1,9 +1,11 @@
 package models;
 
 import com.avaje.ebean.Model;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -29,6 +31,14 @@ public class Pathology extends Model implements Serializable{
             inverseJoinColumns = @JoinColumn(name = "pathology_id", referencedColumnName = "id"))
     private List<Patient> patients;
 
+    public static Finder<Integer, Pathology> findH2 = new Finder<Integer,Pathology>(Pathology.class);
+
+    public Pathology(Integer id, String name, Integer triage) {
+        this.id = id;
+        this.name = name;
+        this.triage = triage;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -51,5 +61,17 @@ public class Pathology extends Model implements Serializable{
 
     public void setTriage(Integer triage) {
         this.triage = triage;
+    }
+
+    @JsonIgnore
+    public List<Patient> getPatients() {
+        if(patients == null){
+            patients = new ArrayList<>();
+        }
+        return patients;
+    }
+
+    public void setPatients(List<Patient> patients) {
+        this.patients = patients;
     }
 }

@@ -34,6 +34,11 @@ public class Allergy extends Model implements Serializable{
     public static Finder<Integer, Allergy> find = new Finder<Integer,Allergy>("secundary", Integer.class, Allergy.class);
     public static Finder<Integer, Allergy> findH2 = new Finder<Integer,Allergy>(Allergy.class);
 
+    public Allergy(Integer id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public Integer getId() {
         return id;
     }
