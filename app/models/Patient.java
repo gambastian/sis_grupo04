@@ -2,12 +2,10 @@ package models;
 
 import com.avaje.ebean.Model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * POJO class to store patient's information
@@ -36,6 +34,14 @@ public class Patient extends Model implements Serializable {
 	private Integer weightGr;
 	@Column(name = "active")
 	private boolean active;
+
+	@ManyToMany(mappedBy = "patients")
+	private List<Allergy> allergies;
+
+	@ManyToMany(mappedBy = "patients")
+	private List<Pathology> pathologies;
+
+	public static Finder<Integer,Patient> findH2 = new Finder<Integer, Patient>(Patient.class);
 
 	public Patient(Integer id, String name, String login, Date birthDate, String bloodType, Integer heightCm, Integer weightGr, boolean active) {
 		this.id = id;

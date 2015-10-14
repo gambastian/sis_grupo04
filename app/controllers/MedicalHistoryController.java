@@ -1,6 +1,7 @@
 package controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import models.Allergy;
 import models.MedicalHistory;
 import models.Patient;
 import persistence.IMedicalHistoryDao;
@@ -31,7 +32,7 @@ public class MedicalHistoryController extends Controller {
 
         // TODO :: traer el batch segun el id de paciente, convertir ese batch en un objeto MedicalHistory
         MedicalHistory history = new MedicalHistory();
-        final Patient dummyPatient = new Patient(1,"Anthony Stark","ironman",new Date(),"BN",177,82000,true);
+        final Patient dummyPatient = Patient.findH2.byId(1);
         history.setPatient(dummyPatient);
 
         final MedicalHistory inMemoryHistory = historyDao.obtainMedicalHistoryByPatientId(history.getPatient().getId());
@@ -52,5 +53,23 @@ public class MedicalHistoryController extends Controller {
         patientMedicalHistory.getDiagnosticImages().addAll(inMemoryMedicalHistory.getDiagnosticImages());
         patientMedicalHistory.getMedicalProcedures().addAll(inMemoryMedicalHistory.getMedicalProcedures());
         patientMedicalHistory.getPathologies().addAll(inMemoryMedicalHistory.getPathologies());
+    }
+
+    /**
+     * Fills H2 database with in memory data
+     * @return
+     */
+    public Result fillDatabase(){
+        final Patient dummyPatient = new Patient(1,"Anthony Stark","ironman",new Date(),"BN",177,82000,true);
+        dummyPatient.save();
+
+
+        Allergy allergy = new Allergy();
+        allergy.setId(1);
+        allergy.setName("dust");
+        allergy.getPatients().add(dummyPatient);
+        allergy.save();
+
+        return ok("Database filled");
     }
 }

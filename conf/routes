@@ -4,6 +4,7 @@
 
 # Home page
 GET    /patient/:id                @controllers.MedicalHistoryController.getPatientHistory(id: Integer)
+POST   /load                       @controllers.MedicalHistoryController.fillDatabase
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

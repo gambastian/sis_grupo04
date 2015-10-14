@@ -1,12 +1,12 @@
 package models;
 
 import com.avaje.ebean.Model;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * POJO class to store Allergy's information
@@ -25,6 +25,15 @@ public class Allergy extends Model implements Serializable{
     @Column(name = "name")
     private String name;
 
+    @ManyToMany
+    @JoinTable(name = "patient_allergy",
+        joinColumns = @JoinColumn(name = "patient_id", referencedColumnName = "id"),
+        inverseJoinColumns = @JoinColumn(name = "allergy_id", referencedColumnName = "id"))
+    private List<Patient> patients;
+
+    public static Finder<Integer, Allergy> find = new Finder<Integer,Allergy>("secundary", Integer.class, Allergy.class);
+    public static Finder<Integer, Allergy> findH2 = new Finder<Integer,Allergy>(Allergy.class);
+
     public Integer getId() {
         return id;
     }
@@ -36,9 +45,19 @@ public class Allergy extends Model implements Serializable{
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
-    public static Finder<Integer, Allergy> find = new Finder<Integer,Allergy>("secundary", Integer.class, Allergy.class);
+
+    @JsonIgnore
+    public List<Patient> getPatients() {
+        if(patients == null){
+            this.patients = new ArrayList<>();
+        }
+        return patients;
+    }
+
+    public void setPatients(List<Patient> patients) {
+        this.patients = patients;
+    }
 }

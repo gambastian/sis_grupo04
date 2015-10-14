@@ -2,11 +2,9 @@ package models;
 
 import com.avaje.ebean.Model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * POJO class to store Pathology's information
@@ -24,6 +22,12 @@ public class Pathology extends Model implements Serializable{
     private String name;
     @Column(name = "triage")
     private Integer triage;
+
+    @ManyToMany
+    @JoinTable(name = "patient_pathology",
+            joinColumns = @JoinColumn(name = "patient_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "pathology_id", referencedColumnName = "id"))
+    private List<Patient> patients;
 
     public Integer getId() {
         return id;
