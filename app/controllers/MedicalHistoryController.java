@@ -2,6 +2,8 @@ package controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import models.*;
+import models.mongo.*;
+import models.mongo.business.MedicalHistoryMongoBusiness;
 import persistence.IMedicalHistoryDao;
 import persistence.impl.MedicalHistoryDaoImpl;
 import play.libs.Json;
@@ -30,32 +32,18 @@ public class MedicalHistoryController extends Controller {
             return badRequest("Invalid input parameters");
         }
 
-        // TODO :: traer el batch segun el id de paciente, convertir ese batch en un objeto MedicalHistory
-        MedicalHistory history = new MedicalHistory();
-        final Patient dummyPatient = Patient.findH2.byId(id);
-        if(dummyPatient == null){
+        MedicalHistoryMongo medicalHistoryMongo = MedicalHistoryMongoBusiness.findByPatientId(id);
+        if(medicalHistoryMongo == null){
             return noContent();
         }
-        history.setPatient(dummyPatient);
+
+        MedicalHistory history = mapToMedicalHistory(medicalHistoryMongo);
 
         final MedicalHistory inMemoryHistory = historyDao.obtainMedicalHistoryByPatientId(history.getPatient().getId());
 
         addInMemoryInformation(history, inMemoryHistory);
 
         return ok(Json.toJson(history));
-    }
-
-    /**
-     * Adds the information in memory to the batch history
-     *
-     * @param patientMedicalHistory
-     * @param inMemoryMedicalHistory
-     */
-    private void addInMemoryInformation(MedicalHistory patientMedicalHistory, MedicalHistory inMemoryMedicalHistory){
-        patientMedicalHistory.getAllergies().addAll(inMemoryMedicalHistory.getAllergies());
-        patientMedicalHistory.getDiagnosticImages().addAll(inMemoryMedicalHistory.getDiagnosticImages());
-        patientMedicalHistory.getMedicalProcedures().addAll(inMemoryMedicalHistory.getMedicalProcedures());
-        patientMedicalHistory.getPathologies().addAll(inMemoryMedicalHistory.getPathologies());
     }
 
     /**
@@ -75,7 +63,7 @@ public class MedicalHistoryController extends Controller {
         supermanPatient.save();
         thorPatient.save();
         sailorPatient.save();
-        
+
         //Allergies
         Allergy allergyDust = new Allergy(1,"dust");
         allergyDust.getPatients().add(ironmanPatient);
@@ -137,5 +125,64 @@ public class MedicalHistoryController extends Controller {
         }
 
         return ok("Data clean");
+    }
+
+    /**
+     * Adds the information in memory to the batch history
+     *
+     * @param patientMedicalHistory
+     * @param inMemoryMedicalHistory
+     */
+    private void addInMemoryInformation(MedicalHistory patientMedicalHistory, MedicalHistory inMemoryMedicalHistory){
+        patientMedicalHistory.getAllergies().addAll(inMemoryMedicalHistory.getAllergies());
+        patientMedicalHistory.getDiagnosticImages().addAll(inMemoryMedicalHistory.getDiagnosticImages());
+        patientMedicalHistory.getMedicalProcedures().addAll(inMemoryMedicalHistory.getMedicalProcedures());
+        patientMedicalHistory.getPathologies().addAll(inMemoryMedicalHistory.getPathologies());
+    }
+
+    /**
+     * Maps a mongo medical history to a resource medical history
+     * @param medicalHistoryMongo
+     * @return
+     */
+    private MedicalHistory mapToMedicalHistory(MedicalHistoryMongo medicalHistoryMongo){
+        MedicalHistory history = new MedicalHistory();
+
+        final Patient patient = new Patient(medicalHistoryMongo.patient);
+        history.setPatient(patient);
+
+        if(medicalHistoryMongo.allergies != null){
+            List<Allergy> allergies = new ArrayList<>();
+            for(AllergyMongo allergyMongo : medicalHistoryMongo.allergies){
+                allergies.add(new Allergy(allergyMongo));
+            }
+            history.setAllergies(allergies);
+        }
+
+        if(medicalHistoryMongo.pathologies != null){
+            List<Pathology> pathologies = new ArrayList<>();
+            for(PathologyMongo pathologyMongo : medicalHistoryMongo.pathologies){
+                pathologies.add(new Pathology(pathologyMongo));
+            }
+            history.setPathologies(pathologies);
+        }
+
+        if(medicalHistoryMongo.diagnosticImages != null){
+            List<DiagnosticImage> diagnosticImages = new ArrayList<>();
+            for(DiagnosticImageMongo diagnosticImageMongo : medicalHistoryMongo.diagnosticImages){
+                diagnosticImages.add(new DiagnosticImage(diagnosticImageMongo));
+            }
+            history.setDiagnosticImages(diagnosticImages);
+        }
+
+        if(medicalHistoryMongo.medicalProcedures != null){
+            List<MedicalProcedure> medicalProcedures = new ArrayList<>();
+            for(MedicalProcedureMongo medicalProcedureMongo : medicalHistoryMongo.medicalProcedures){
+                medicalProcedures.add(new MedicalProcedure(medicalProcedureMongo));
+            }
+            history.setMedicalProcedures(medicalProcedures);
+        }
+
+        return history;
     }
 }

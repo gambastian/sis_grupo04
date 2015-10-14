@@ -2,6 +2,7 @@ package models;
 
 import com.avaje.ebean.Model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import models.mongo.DiagnosticImageMongo;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -38,6 +39,18 @@ public class DiagnosticImage extends Model implements Serializable {
         this.patient = patient;
         this.type = type;
         this.date = date;
+    }
+
+    /**
+     * builds a resource diagnostic image from a mongo diagnostic image
+     * @param diagnosticImageMongo
+     */
+    public DiagnosticImage(DiagnosticImageMongo diagnosticImageMongo){
+
+        this.id = diagnosticImageMongo.id_ext;
+        this.name = diagnosticImageMongo.name;
+        this.type = diagnosticImageMongo.type;
+        this.date = diagnosticImageMongo.date;
     }
 
     public Integer getId() {

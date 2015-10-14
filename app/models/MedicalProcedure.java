@@ -2,6 +2,7 @@ package models;
 
 import com.avaje.ebean.Model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import models.mongo.MedicalProcedureMongo;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -33,6 +34,16 @@ public class MedicalProcedure extends Model implements Serializable {
         this.name = name;
         this.patient = patient;
         this.date = date;
+    }
+
+    /**
+     * builds a resource medical procedure from a mongo medical procedure
+     * @param medicalProcedureMongo
+     */
+    public MedicalProcedure(MedicalProcedureMongo medicalProcedureMongo){
+        this.id = medicalProcedureMongo.id_ext;
+        this.name = medicalProcedureMongo.name;
+        this.date = medicalProcedureMongo.date;
     }
 
     public Integer getId() {

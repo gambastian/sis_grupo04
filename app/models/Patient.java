@@ -1,6 +1,7 @@
 package models;
 
 import com.avaje.ebean.Model;
+import models.mongo.PatientMongo;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -58,6 +59,21 @@ public class Patient extends Model implements Serializable {
 		this.heightCm = heightCm;
 		this.weightGr = weightGr;
 		this.active = active;
+	}
+
+	/**
+	 * Builds a resource patient with a mongo Patient
+	 * @param patientMongo
+	 */
+	public Patient(PatientMongo patientMongo){
+		this.id = patientMongo.id_ext;
+		this.name =  patientMongo.name;
+		this.login = patientMongo.login;
+		this.birthDate = patientMongo.birthDate;
+		this.bloodType = patientMongo.bloodType;
+		this.heightCm = patientMongo.heightCm;
+		this.weightGr = patientMongo.weightGr;
+		this.active = patientMongo.active;
 	}
 
 	public Integer getId() {
