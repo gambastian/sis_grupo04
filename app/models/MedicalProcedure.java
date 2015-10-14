@@ -25,6 +25,7 @@ public class MedicalProcedure extends Model implements Serializable {
     @Column(name = "date")
     private Date date;
 
+    public static Finder<Integer, MedicalProcedure> find = new Finder<Integer,MedicalProcedure>("secundary", Integer.class, MedicalProcedure.class);
     public static Finder<Integer, MedicalProcedure> findH2 = new Finder<Integer,MedicalProcedure>(MedicalProcedure.class);
 
     public MedicalProcedure(Integer id, String name, Patient patient, Date date) {

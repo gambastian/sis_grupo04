@@ -18,6 +18,5 @@ public class MedicalProcedureMongo {
     public ObjectId id;
     public Integer id_ext;
     public String name;
-    public Integer patientId;
     public Date date;
 }

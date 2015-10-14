@@ -18,7 +18,6 @@ public class DiagnosticImageMongo {
     public ObjectId id;
     public Integer id_ext;
     public String name;
-    public Integer patientId;
     public String type;
     public Date date;
 }

@@ -69,11 +69,13 @@ public class MedicalHistoryController extends Controller {
         final Patient batmanPatient = new Patient(2,"Bruce Wayne","batman",new Date(),"AN",187,85000,true);
         final Patient supermanPatient = new Patient(3,"Clark Kent","superman",new Date(),"ON",177,92000,true);
         final Patient thorPatient = new Patient(4,"Thor Odinson","mjolnir",new Date(),"OP",177,90000,true);
+        final Patient sailorPatient = new Patient(5,"Sailor Moon","sebas",new Date(),"=)",177,90000,true);
         ironmanPatient.save();
         batmanPatient.save();
         supermanPatient.save();
         thorPatient.save();
-
+        sailorPatient.save();
+        
         //Allergies
         Allergy allergyDust = new Allergy(1,"dust");
         allergyDust.getPatients().add(ironmanPatient);

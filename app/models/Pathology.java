@@ -31,6 +31,7 @@ public class Pathology extends Model implements Serializable{
             inverseJoinColumns = @JoinColumn(name = "pathology_id", referencedColumnName = "id"))
     private List<Patient> patients;
 
+    public static Finder<Integer, Pathology> find = new Finder<Integer,Pathology>(Pathology.class);
     public static Finder<Integer, Pathology> findH2 = new Finder<Integer,Pathology>(Pathology.class);
 
     public Pathology(Integer id, String name, Integer triage) {

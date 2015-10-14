@@ -46,6 +46,7 @@ public class Patient extends Model implements Serializable {
 	@OneToMany(mappedBy = "patient")
 	private List<MedicalProcedure> medicalProcedures;
 
+	public static Finder<Integer, Patient> find = new Finder<Integer,Patient>("secundary", Integer.class, Patient.class);
 	public static Finder<Integer,Patient> findH2 = new Finder<Integer, Patient>(Patient.class);
 
 	public Patient(Integer id, String name, String login, Date birthDate, String bloodType, Integer heightCm, Integer weightGr, boolean active) {
@@ -122,5 +123,5 @@ public class Patient extends Model implements Serializable {
 	public void setActive(boolean active) {
 		this.active = active;
 	}
-	public static Finder<Integer, Patient> find = new Finder<Integer,Patient>("secundary", Integer.class, Patient.class);
+	
 }	

@@ -29,6 +29,7 @@ public class DiagnosticImage extends Model implements Serializable {
     @Column(name = "date")
     private Date date;
 
+    public static Finder<Integer, DiagnosticImage> find = new Finder<Integer,DiagnosticImage>("secundary", Integer.class, DiagnosticImage.class);
     public static Finder<Integer, DiagnosticImage> findH2 = new Finder<Integer,DiagnosticImage>(DiagnosticImage.class);
 
     public DiagnosticImage(Integer id, String name, Patient patient, String type, Date date) {

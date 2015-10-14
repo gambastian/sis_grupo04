@@ -4,6 +4,7 @@
 
 # Home page
 GET    /patient/:id                @controllers.MedicalHistoryController.getPatientHistory(id: Integer)
+GET    /patientMongo/:id           @controllers.ScheduleToMongo.getPatientHistory(id: Integer)
 POST   /load                       @controllers.MedicalHistoryController.fillDatabase
 POST   /delete                     @controllers.MedicalHistoryController.deleteAll
 

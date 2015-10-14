@@ -17,6 +17,5 @@ public class PatientAllergyMongo {
     @JsonProperty("_id")
     public ObjectId id;
     public Integer id_ext;
-    public Integer patientId;
     public Integer allergyId;
 }

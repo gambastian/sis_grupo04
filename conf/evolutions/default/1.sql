@@ -12,7 +12,7 @@ create table allergy (
 create table diagnostic_image (
   id                        integer not null,
   name                      varchar(255),
-  patient_id                integer,
+  patient_id                integer not null,
   type                      varchar(255),
   date                      timestamp,
   constraint pk_diagnostic_image primary key (id))
@@ -21,7 +21,7 @@ create table diagnostic_image (
 create table medical_procedure (
   id                        integer not null,
   name                      varchar(255),
-  patient_id                integer,
+  patient_id                integer not null,
   date                      timestamp,
   constraint pk_medical_procedure primary key (id))
 ;
@@ -67,6 +67,10 @@ create sequence pathology_seq;
 
 create sequence patient_seq;
 
+alter table diagnostic_image add constraint fk_diagnostic_image_patient_1 foreign key (patient_id) references patient (id) on delete restrict on update restrict;
+create index ix_diagnostic_image_patient_1 on diagnostic_image (patient_id);
+alter table medical_procedure add constraint fk_medical_procedure_patient_2 foreign key (patient_id) references patient (id) on delete restrict on update restrict;
+create index ix_medical_procedure_patient_2 on medical_procedure (patient_id);
 
 
 
