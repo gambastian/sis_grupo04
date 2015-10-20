@@ -1,5 +1,7 @@
 package controllers;
 
+import com.avaje.ebean.Ebean;
+import com.avaje.ebean.EbeanServer;
 import com.fasterxml.jackson.databind.JsonNode;
 import models.*;
 import models.mongo.*;
@@ -10,6 +12,8 @@ import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -21,7 +25,10 @@ import java.util.List;
  */
 public class MedicalHistoryController extends Controller {
 
+    final SimpleDateFormat FORMATTER = new SimpleDateFormat("yyyy-MM-dd");
+
     private IMedicalHistoryDao historyDao = new MedicalHistoryDaoImpl();
+
     /**
      * Obtains the medical history using patient id as key
      * @return the Medical history as JSON
@@ -184,5 +191,112 @@ public class MedicalHistoryController extends Controller {
         }
 
         return history;
+    }
+
+    /**
+     * Stores a patient in memory database and postgres
+     * @return
+     */
+    public Result savePatient(){
+
+        JsonNode medicalHistoryRequest = request().body().asJson();
+        if(medicalHistoryRequest == null){
+            return badRequest("Expecting json medical history");
+        }
+
+        JsonNode patientNode = medicalHistoryRequest.get("patient");
+        JsonNode pathologiesNodes = medicalHistoryRequest.get("pathologies");
+        JsonNode allergiesNodes = medicalHistoryRequest.get("allergies");
+        JsonNode medicalProceduresNodes = medicalHistoryRequest.get("medicalProcedures");
+        JsonNode diagnosticImagesNodes = medicalHistoryRequest.get("diagnosticImages");
+
+        final Patient newPatient = patientNode != null ? buildPatientFromJsonNode(patientNode) : null;
+
+        List<Pathology> pathologies = new ArrayList<>();
+        if(pathologiesNodes != null) {
+            for (int i = 0; i < pathologiesNodes.size(); i++) {
+                pathologies.add(buildPathologyFromJsonNode(pathologiesNodes.get(i)));
+            }
+        }
+
+        List<Allergy> allergies = new ArrayList<>();
+        if(allergiesNodes != null) {
+            for (int i = 0; i < allergiesNodes.size(); i++) {
+                allergies.add(buildAllergyFromJsonNode(allergiesNodes.get(i)));
+            }
+        }
+
+        List<MedicalProcedure> medicalProcedures = new ArrayList<>();
+        if(medicalProceduresNodes != null) {
+            for (int i = 0; i < medicalProceduresNodes.size(); i++) {
+                medicalProcedures.add(buildMedicalProcedureFromJsonNode(medicalProceduresNodes.get(i)));
+            }
+        }
+
+        List<DiagnosticImage> diagnosticImages = new ArrayList<>();
+        if(diagnosticImagesNodes != null) {
+            for (int i = 0; i < diagnosticImagesNodes.size(); i++) {
+                diagnosticImages.add(buildDiagnosticImageFromJsonNode(diagnosticImagesNodes.get(i)));
+            }
+        }
+
+        if(newPatient != null){
+            newPatient.setAllergies(allergies);
+            newPatient.setPathologies(pathologies);
+            newPatient.setMedicalProcedures(medicalProcedures);
+            newPatient.setDiagnosticImages(diagnosticImages);
+        }
+
+        EbeanServer secondary = Ebean.getServer("secundary");
+        secondary.save(newPatient);
+
+        return ok("Patient Stored \n" + Json.toJson(newPatient));
+    }
+
+    private Patient buildPatientFromJsonNode(JsonNode jsonNode){
+        try {
+            return new Patient(jsonNode.get("id") != null ? jsonNode.get("id").asInt() : null,
+                    jsonNode.get("name") != null ? jsonNode.get("name").textValue() : null,
+                    jsonNode.get("login") != null ? jsonNode.get("login").textValue() : null,
+                    jsonNode.get("birthDate") != null ? FORMATTER.parse(jsonNode.get("birthDate").textValue()) : null,
+                    jsonNode.get("bloodType") != null ? jsonNode.get("bloodType").textValue() : null,
+                    jsonNode.get("heightCm") != null ? jsonNode.get("heightCm").asInt() : null,
+                    jsonNode.get("weightGr") != null ? jsonNode.get("weightGr").asInt() : null,
+                    jsonNode.get("active") != null ? Boolean.getBoolean(jsonNode.get("active").textValue()) : false);
+        } catch (ParseException e) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private Allergy buildAllergyFromJsonNode(JsonNode jsonNode){
+        return new Allergy(jsonNode.get("id") != null ? jsonNode.get("id").asInt() : null,
+                jsonNode.get("name") != null ? jsonNode.get("name").asText() : null);
+    }
+
+    private Pathology buildPathologyFromJsonNode(JsonNode jsonNode){
+        return new Pathology(jsonNode.get("id") != null ? jsonNode.get("id").asInt() : null,
+                jsonNode.get("name") != null ? jsonNode.get("name").asText() : null,
+                jsonNode.get("triage") != null ? jsonNode.get("triage").asInt() : null);
+    }
+
+    private MedicalProcedure buildMedicalProcedureFromJsonNode(JsonNode jsonNode){
+        try {
+            return new MedicalProcedure(jsonNode.get("id") != null ? jsonNode.get("id").asInt() : null,
+                    jsonNode.get("name") != null ? jsonNode.get("name").asText() : null,
+                    jsonNode.get("date") != null ? FORMATTER.parse(jsonNode.get("date").textValue()) : null);
+        } catch (ParseException e) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private DiagnosticImage buildDiagnosticImageFromJsonNode(JsonNode jsonNode){
+        try {
+            return new DiagnosticImage(jsonNode.get("id") != null ? jsonNode.get("id").asInt() : null,
+                    jsonNode.get("name") != null ? jsonNode.get("name").asText() : null,
+                    jsonNode.get("type") != null ? jsonNode.get("type").asText() : null,
+                    jsonNode.get("date") != null ? FORMATTER.parse(jsonNode.get("date").textValue()) : null);
+        } catch (ParseException e) {
+            throw new IllegalArgumentException();
+        }
     }
 }

@@ -139,5 +139,38 @@ public class Patient extends Model implements Serializable {
 	public void setActive(boolean active) {
 		this.active = active;
 	}
-	
-}	
+
+	public void setAllergies(List<Allergy> allergies) {
+		this.allergies = allergies;
+	}
+
+	public void setPathologies(List<Pathology> pathologies) {
+		this.pathologies = pathologies;
+	}
+
+	public void setDiagnosticImages(List<DiagnosticImage> diagnosticImages) {
+		this.diagnosticImages = diagnosticImages;
+	}
+
+	public void setMedicalProcedures(List<MedicalProcedure> medicalProcedures) {
+		this.medicalProcedures = medicalProcedures;
+	}
+
+	@Override
+	public String toString() {
+		return "Patient{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				", login='" + login + '\'' +
+				", birthDate=" + birthDate +
+				", bloodType='" + bloodType + '\'' +
+				", heightCm=" + heightCm +
+				", weightGr=" + weightGr +
+				", active=" + active +
+				", allergies=" + allergies +
+				", pathologies=" + pathologies +
+				", diagnosticImages=" + diagnosticImages +
+				", medicalProcedures=" + medicalProcedures +
+				'}';
+	}
+}

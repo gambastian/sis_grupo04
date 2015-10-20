@@ -41,6 +41,13 @@ public class DiagnosticImage extends Model implements Serializable {
         this.date = date;
     }
 
+    public DiagnosticImage(Integer id, String name, String type, Date date) {
+        this.id = id;
+        this.name = name;
+        this.type = type;
+        this.date = date;
+    }
+
     /**
      * builds a resource diagnostic image from a mongo diagnostic image
      * @param diagnosticImageMongo
@@ -92,5 +99,15 @@ public class DiagnosticImage extends Model implements Serializable {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    @Override
+    public String toString() {
+        return "DiagnosticImage{" +
+                "name='" + name + '\'' +
+                ", id=" + id +
+                ", type='" + type + '\'' +
+                ", date=" + date +
+                '}';
     }
 }

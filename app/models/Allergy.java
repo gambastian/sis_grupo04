@@ -75,4 +75,12 @@ public class Allergy extends Model implements Serializable{
     public void setPatients(List<Patient> patients) {
         this.patients = patients;
     }
+
+    @Override
+    public String toString() {
+        return "Allergy{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

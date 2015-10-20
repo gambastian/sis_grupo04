@@ -36,6 +36,12 @@ public class MedicalProcedure extends Model implements Serializable {
         this.date = date;
     }
 
+    public MedicalProcedure(Integer id, String name, Date date) {
+        this.id = id;
+        this.name = name;
+        this.date = date;
+    }
+
     /**
      * builds a resource medical procedure from a mongo medical procedure
      * @param medicalProcedureMongo
@@ -77,5 +83,14 @@ public class MedicalProcedure extends Model implements Serializable {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    @Override
+    public String toString() {
+        return "MedicalProcedure{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", date=" + date +
+                '}';
     }
 }

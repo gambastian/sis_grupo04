@@ -87,4 +87,13 @@ public class Pathology extends Model implements Serializable{
     public void setPatients(List<Patient> patients) {
         this.patients = patients;
     }
+
+    @Override
+    public String toString() {
+        return "Pathology{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", triage=" + triage +
+                '}';
+    }
 }
