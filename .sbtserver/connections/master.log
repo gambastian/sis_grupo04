@@ -1,7 +1,0 @@
-New log file opened at Wed Oct 14 01:42:02 COT 2015 by 6003@MacBook-Pro-German.local
-Taking next connection to: 50881
-New client attempting to connect on port: 50882-50881
-  Address = /192.168.0.11:50881
-This client on port 50882 has uuid 57d5f83b-d1be-4b82-a682-a45119d0549c configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
-Connected Clients: play-fork-run-57d5f83b-d1be-4b82-a682-a45119d0549c
-Taking next connection to: 50881
