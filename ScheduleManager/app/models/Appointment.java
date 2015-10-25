@@ -1,8 +1,10 @@
 package models;
 
+
 /**
- * POJO for the appointment information
+ * POJO class to store appointment's information
  *
+ * @author Sebastian Gamba Pinilla
  */
 public class Appointment {
 }
