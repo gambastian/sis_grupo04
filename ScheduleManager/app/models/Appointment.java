@@ -1,7 +1,8 @@
 package models;
 
 /**
- * Created by SEBASTIAN on 25/10/2015.
+ * POJO for the appointment information
+ *
  */
 public class Appointment {
 }
