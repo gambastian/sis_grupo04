@@ -1,0 +1,8 @@
+[0m[[31merror[0m] [0m/home/fgamba/workspace/sis-experiments/sis_grupo04/ScheduleManager/app/models/Doctor.java:70: cannot find symbol[0m
+[0m[[31merror[0m] [0m  symbol:   class SpecialityEnum[0m
+[0m[[31merror[0m] [0m  location: class models.Doctor[0m
+[0m[[31merror[0m] [0mSpecialityEnum[0m
+[0m[[31merror[0m] [0m/home/fgamba/workspace/sis-experiments/sis_grupo04/ScheduleManager/app/models/Doctor.java:74: cannot find symbol[0m
+[0m[[31merror[0m] [0m  symbol:   class SpecialityEnum[0m
+[0m[[31merror[0m] [0m  location: class models.Doctor[0m
+[0m[[31merror[0m] [0mSpecialityEnum[0m

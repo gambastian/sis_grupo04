@@ -1,5 +1,7 @@
 package models;
 
+import com.avaje.ebean.Model;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -30,6 +32,8 @@ public class Appointment implements Serializable{
     private Date time;
     @Column(name = "insurance_id")
     private Insurance insurance;
+
+    public static Model.Finder<Integer,Appointment> find = new Model.Finder<Integer, Appointment>(Appointment.class);
 
     public String getId() {
         return id;

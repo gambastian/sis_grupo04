@@ -1,0 +1,7 @@
+[0m[[0mdebug[0m] [0mCopy resource mappings: [0m
+[0m[[0mdebug[0m] [0m	(/home/fgamba/workspace/sis-experiments/sis_grupo04/ScheduleManager/conf/logback.xml,/home/fgamba/workspace/sis-experiments/sis_grupo04/ScheduleManager/target/scala-2.11/classes/logback.xml)[0m
+[0m[[0mdebug[0m] [0m	(/home/fgamba/workspace/sis-experiments/sis_grupo04/ScheduleManager/conf/application.conf,/home/fgamba/workspace/sis-experiments/sis_grupo04/ScheduleManager/target/scala-2.11/classes/application.conf)[0m
+[0m[[0mdebug[0m] [0m	(/home/fgamba/workspace/sis-experiments/sis_grupo04/ScheduleManager/conf/routes,/home/fgamba/workspace/sis-experiments/sis_grupo04/ScheduleManager/target/scala-2.11/classes/routes)[0m
+[0m[[0mdebug[0m] [0m	(/home/fgamba/workspace/sis-experiments/sis_grupo04/ScheduleManager/conf/evolutions,/home/fgamba/workspace/sis-experiments/sis_grupo04/ScheduleManager/target/scala-2.11/classes/evolutions)[0m
+[0m[[0mdebug[0m] [0m	(/home/fgamba/workspace/sis-experiments/sis_grupo04/ScheduleManager/conf/evolutions/default,/home/fgamba/workspace/sis-experiments/sis_grupo04/ScheduleManager/target/scala-2.11/classes/evolutions/default)[0m
+[0m[[0mdebug[0m] [0m	(/home/fgamba/workspace/sis-experiments/sis_grupo04/ScheduleManager/conf/evolutions/default/1.sql,/home/fgamba/workspace/sis-experiments/sis_grupo04/ScheduleManager/target/scala-2.11/classes/evolutions/default/1.sql)[0m
