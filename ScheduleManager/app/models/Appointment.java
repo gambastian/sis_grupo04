@@ -21,8 +21,9 @@ public class Appointment implements Serializable{
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="doctor_id")
     private Doctor doctor;
-    @Column(name = "speciality")
-    private SpecialityEnum speciality;
+    @OneToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="speciality_id")
+    private Speciality speciality;
     @Column(name = "address")
     private String address;
     @Column(name = "time")
@@ -54,11 +55,11 @@ public class Appointment implements Serializable{
         this.doctor = doctor;
     }
 
-    public SpecialityEnum getSpeciality() {
+    public Speciality getSpeciality() {
         return speciality;
     }
 
-    public void setSpeciality(SpecialityEnum speciality) {
+    public void setSpeciality(Speciality speciality) {
         this.speciality = speciality;
     }
 

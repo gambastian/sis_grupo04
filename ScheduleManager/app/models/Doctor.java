@@ -18,8 +18,9 @@ public class Doctor implements Serializable{
     private String id;
     @Column(name = "name")
     private String name;
-    @Column(name = "specialities")
-    private List<SpecialityEnum> specialities;
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name="speciality_id", referencedColumnName="doctor_id")
+    private List<Speciality> specialities;
     @ManyToMany(mappedBy="doctors")
     private List<Insurance> afiliatedInsurances;
     @Column(name = "phone")
@@ -61,11 +62,11 @@ public class Doctor implements Serializable{
         this.afiliatedInsurances = afiliatedInsurances;
     }
 
-    public List<SpecialityEnum> getSpecialities() {
+    public List<Speciality> getSpecialities() {
         return specialities;
     }
 
-    public void setSpecialities(List<SpecialityEnum> specialities) {
+    public void setSpecialities(List<Speciality> specialities) {
         this.specialities = specialities;
     }
 

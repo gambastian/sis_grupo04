@@ -1,6 +1,6 @@
 -- DROP ROLE scheduler;
 
-CREATE ROLE scheduler LOGIN ENCRYPTED PASSWORD 'md5db8f512bbcdbcb322492d62501b4cb5a'
+CREATE ROLE scheduler LOGIN ENCRYPTED PASSWORD 'md528a44df13c85f2a25a17fbbfe3074145'
 VALID UNTIL 'infinity';
 
 --Database: stampidia
