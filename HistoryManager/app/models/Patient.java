@@ -42,9 +42,9 @@ public class Patient extends Model implements Serializable {
 	@ManyToMany(mappedBy = "patients")
 	private List<Pathology> pathologies;
 
-	@OneToMany(mappedBy = "patient")
+	@OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
 	private List<DiagnosticImage> diagnosticImages;
-	@OneToMany(mappedBy = "patient")
+	@OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
 	private List<MedicalProcedure> medicalProcedures;
 
 	public static Finder<Integer, Patient> find = new Finder<Integer, Patient>(Patient.class);
