@@ -1,5 +1,6 @@
 package models;
 
+import com.avaje.ebean.Model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -13,7 +14,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "doctor")
-public class Doctor implements Serializable{
+public class Doctor extends Model implements Serializable{
 
     @Id
     @Column(name = "doctor_id")
@@ -30,6 +31,19 @@ public class Doctor implements Serializable{
     private String defaultAddress;
     @Column(name = "email")
     private String email;
+    public static Model.Finder<String,Doctor> find = new Model.Finder<String, Doctor>(Doctor.class);
+
+    public Doctor(){}
+
+    public Doctor(String id, String name, List<Speciality> specialities, List<Insurance> afiliatedInsurances, Integer phone, String defaultAddress, String email) {
+        this.id = id;
+        this.name = name;
+        this.specialities = specialities;
+        this.afiliatedInsurances = afiliatedInsurances;
+        this.phone = phone;
+        this.defaultAddress = defaultAddress;
+        this.email = email;
+    }
 
     public String getEmail() {
         return email;
@@ -86,5 +100,21 @@ public class Doctor implements Serializable{
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Doctor doctor = (Doctor) o;
+
+        return id.equals(doctor.id);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return id.hashCode();
     }
 }

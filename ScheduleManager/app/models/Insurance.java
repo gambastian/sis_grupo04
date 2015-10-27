@@ -1,5 +1,7 @@
 package models;
 
+import com.avaje.ebean.Model;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -11,7 +13,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "insurance")
-public class Insurance implements Serializable{
+public class Insurance extends Model implements Serializable{
 
     @Id
     @Column(name = "insurance_id")
@@ -24,6 +26,17 @@ public class Insurance implements Serializable{
             joinColumns={@JoinColumn(name="insurance_id", referencedColumnName="insurance_id")},
             inverseJoinColumns={@JoinColumn(name="doctor_id", referencedColumnName="doctor_id")})
     private List<Doctor> doctors;
+
+    public static Model.Finder<String,Insurance> find = new Model.Finder<String, Insurance>(Insurance.class);
+
+    public Insurance(){
+
+    }
+
+    public Insurance(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
     public String getId() {
         return id;
@@ -47,5 +60,21 @@ public class Insurance implements Serializable{
 
     public void setDoctors(List<Doctor> doctors) {
         this.doctors = doctors;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Insurance insurance = (Insurance) o;
+
+        return id.equals(insurance.id);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return id.hashCode();
     }
 }
