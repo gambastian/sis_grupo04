@@ -1,6 +1,7 @@
 package models;
 
 import com.avaje.ebean.Model;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -103,6 +104,7 @@ public class Patient extends Model implements Serializable {
 		return heightCm;
 	}
 
+	@JsonIgnore
 	public List<Pathology> getPathologies() {
 		return pathologies;
 	}

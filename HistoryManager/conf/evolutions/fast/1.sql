@@ -53,9 +53,9 @@ create table patient_allergy (
 ;
 
 create table patient_pathology (
-  patient_id                     integer not null,
   pathology_id                   integer not null,
-  constraint pk_patient_pathology primary key (patient_id, pathology_id))
+  patient_id                     integer not null,
+  constraint pk_patient_pathology primary key (pathology_id, patient_id))
 ;
 alter table diagnostic_image add constraint fk_diagnostic_image_patient_1 foreign key (patient_id) references patient (id);
 create index ix_diagnostic_image_patient_1 on diagnostic_image (patient_id);
@@ -68,9 +68,9 @@ alter table patient_allergy add constraint fk_patient_allergy_allergy_01 foreign
 
 alter table patient_allergy add constraint fk_patient_allergy_patient_02 foreign key (allergy_id) references patient (id);
 
-alter table patient_pathology add constraint fk_patient_pathology_patholog_01 foreign key (patient_id) references pathology (id);
+alter table patient_pathology add constraint fk_patient_pathology_patholog_01 foreign key (pathology_id) references pathology (id);
 
-alter table patient_pathology add constraint fk_patient_pathology_patient_02 foreign key (pathology_id) references patient (id);
+alter table patient_pathology add constraint fk_patient_pathology_patient_02 foreign key (patient_id) references patient (id);
 
 # --- !Downs
 

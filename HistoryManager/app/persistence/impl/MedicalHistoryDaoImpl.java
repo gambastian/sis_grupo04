@@ -1,6 +1,9 @@
 package persistence.impl;
 
+import com.avaje.ebean.Ebean;
+import com.avaje.ebean.EbeanServer;
 import com.avaje.ebean.Model;
+import com.avaje.ebean.annotation.Transactional;
 import models.*;
 import persistence.IMedicalHistoryDao;
 
@@ -36,5 +39,20 @@ public class MedicalHistoryDaoImpl implements IMedicalHistoryDao {
         medicalHistory.getMedicalProcedures().addAll(medicalProcedures);
 
         return medicalHistory;
+    }
+
+    @Transactional
+    @Override
+    public void savePatientFast(final Patient patient) {
+        System.out.println("Storing in Fast Memory...");
+        final EbeanServer server = Ebean.getServer("fast");
+        server.save(patient);
+    }
+
+    @Transactional(serverName = "default")
+    @Override
+    public void savePatientHistoric(Patient patient) {
+        System.out.println("Storing in Default Memory...");
+        patient.save();
     }
 }

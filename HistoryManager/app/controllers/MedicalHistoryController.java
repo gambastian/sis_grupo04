@@ -2,6 +2,8 @@ package controllers;
 
 import com.avaje.ebean.Ebean;
 import com.avaje.ebean.EbeanServer;
+import com.avaje.ebean.TxRunnable;
+import com.avaje.ebean.annotation.Transactional;
 import com.fasterxml.jackson.databind.JsonNode;
 import models.*;
 import persistence.IMedicalHistoryDao;
@@ -94,7 +96,7 @@ public class MedicalHistoryController extends Controller {
     }
 
     /**
-     * Stores a patient in memory database and postgres
+     * Stores a patient in historic database postgres
      * @return
      */
     public Result savePatient(){
@@ -117,17 +119,42 @@ public class MedicalHistoryController extends Controller {
         patient.setMedicalProcedures(patientMedicalProcedures);
         patient.setDiagnosticImages(patientDiagnosticImages);
 
-        EbeanServer defaultServer = Ebean.getServer("default");
-        defaultServer.beginTransaction();
-        defaultServer.save(patient);
-        defaultServer.commitTransaction();
+//        Ebean.getServer("default").save(patient);
 
-        EbeanServer secondary = Ebean.getServer("fast");
-        secondary.beginTransaction(); 
-        secondary.save(patient);
-        secondary.commitTransaction(); 
-        
-        
+        historyDao.savePatientHistoric(patient);
+
+        return ok("History inserted, patient: " + patient.getName());
+
+    }
+
+    /**
+     * Stores a patient in historic database postgres
+     * @return
+     */
+    public Result savePatientFast(){
+
+        MedicalHistory medicalHistory = Json.fromJson(request().body().asJson(), MedicalHistory.class);
+
+        Patient patient = Patient.find.byId(medicalHistory.getPatient().getId());
+
+        if (patient == null) {
+            patient = medicalHistory.getPatient();
+        }
+
+        List<Pathology> patientPathologies = medicalHistory.getPathologies();
+        List<Allergy> patientAllergies = medicalHistory.getAllergies();
+        List<MedicalProcedure> patientMedicalProcedures = medicalHistory.getMedicalProcedures();
+        List<DiagnosticImage> patientDiagnosticImages = medicalHistory.getDiagnosticImages();
+
+        patient.setPathologies(patientPathologies);
+        patient.setAllergies(patientAllergies);
+        patient.setMedicalProcedures(patientMedicalProcedures);
+        patient.setDiagnosticImages(patientDiagnosticImages);
+
+//        Ebean.getServer("default").save(patient);
+
+        historyDao.savePatientFast(patient);
+
         return ok("History inserted, patient: " + patient.getName());
 
     }
