@@ -13,8 +13,8 @@ Proyecto para gestión de citas
 
  * Agenda una cita medica
    **Ej:** POST http://localhost:9000/appointment
-   ```
-   {
+   
+   >{
      "appointmentId" : "1",
      "patient" : "123456789",
      "doctorId" : "1",
@@ -23,7 +23,7 @@ Proyecto para gestión de citas
      "time" : "2015-12-01 08:30:00",
      "insuranceId" : "2"
    }
-   ```
+   
 
 ## BONUS
 
