@@ -41,12 +41,16 @@ create table insurance_doctor (
   doctor_id                      varchar(255) not null,
   constraint pk_insurance_doctor primary key (insurance_id, doctor_id))
 ;
+
+create table doctor_speciality (
+  speciality_id                  varchar(255) not null,
+  doctor_id                      varchar(255) not null,
+  constraint pk_doctor_speciality primary key (speciality_id, doctor_id))
+;
 alter table appointment add constraint fk_appointment_doctor_1 foreign key (doctor_id) references doctor (doctor_id);
 create index ix_appointment_doctor_1 on appointment (doctor_id);
 alter table appointment add constraint fk_appointment_speciality_2 foreign key (speciality_id) references speciality (speciality_id);
 create index ix_appointment_speciality_2 on appointment (speciality_id);
-alter table speciality add constraint fk_speciality_doctor_3 foreign key (speciality_id) references doctor (doctor_id);
-create index ix_speciality_doctor_3 on speciality (speciality_id);
 
 
 
@@ -54,11 +58,17 @@ alter table insurance_doctor add constraint fk_insurance_doctor_insurance_01 for
 
 alter table insurance_doctor add constraint fk_insurance_doctor_doctor_02 foreign key (doctor_id) references doctor (doctor_id);
 
+alter table doctor_speciality add constraint fk_doctor_speciality_speciali_01 foreign key (speciality_id) references speciality (speciality_id);
+
+alter table doctor_speciality add constraint fk_doctor_speciality_doctor_02 foreign key (doctor_id) references doctor (doctor_id);
+
 # --- !Downs
 
 drop table if exists appointment cascade;
 
 drop table if exists doctor cascade;
+
+drop table if exists doctor_speciality cascade;
 
 drop table if exists insurance_doctor cascade;
 

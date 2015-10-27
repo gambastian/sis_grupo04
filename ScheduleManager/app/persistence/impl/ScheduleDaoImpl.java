@@ -19,6 +19,6 @@ public class ScheduleDaoImpl implements IScheduleDao{
 
     @Override
     public void scheduleAppointment(Appointment appointment) {
-
+        appointment.save();
     }
 }

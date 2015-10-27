@@ -13,7 +13,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "appointment")
-public class Appointment implements Serializable{
+public class Appointment extends Model implements Serializable{
 
     @Id
     @Column(name = "appointment_id")
@@ -33,7 +33,19 @@ public class Appointment implements Serializable{
     @Column(name = "insurance_id")
     private Insurance insurance;
 
-    public static Model.Finder<Integer,Appointment> find = new Model.Finder<Integer, Appointment>(Appointment.class);
+    public Appointment(){}
+
+    public Appointment(String id, String patientId, Doctor doctor, Speciality speciality, String address, Date time, Insurance insurance) {
+        this.id = id;
+        this.patientId = patientId;
+        this.doctor = doctor;
+        this.speciality = speciality;
+        this.address = address;
+        this.time = time;
+        this.insurance = insurance;
+    }
+
+    public static Model.Finder<String,Appointment> find = new Model.Finder<String, Appointment>(Appointment.class);
 
     public String getId() {
         return id;
@@ -89,5 +101,21 @@ public class Appointment implements Serializable{
 
     public void setInsurance(Insurance insurance) {
         this.insurance = insurance;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Appointment that = (Appointment) o;
+
+        return id.equals(that.id);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return id.hashCode();
     }
 }
