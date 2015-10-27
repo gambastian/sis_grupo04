@@ -1,7 +1,6 @@
 package models;
 
 import com.avaje.ebean.Model;
-import models.mongo.PatientMongo;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -47,8 +46,7 @@ public class Patient extends Model implements Serializable {
 	@OneToMany(mappedBy = "patient")
 	private List<MedicalProcedure> medicalProcedures;
 
-	public static Finder<Integer, Patient> find = new Finder<Integer,Patient>("secundary", Integer.class, Patient.class);
-	public static Finder<Integer, Patient> findH2 = new Finder<Integer, Patient>(Patient.class);
+	public static Finder<Integer, Patient> find = new Finder<Integer, Patient>(Patient.class);
 
 	public Patient(Integer id, String name, String login, Date birthDate, String bloodType, Integer heightCm, Integer weightGr, boolean active) {
 		this.id = id;
@@ -59,21 +57,6 @@ public class Patient extends Model implements Serializable {
 		this.heightCm = heightCm;
 		this.weightGr = weightGr;
 		this.active = active;
-	}
-
-	/**
-	 * Builds a resource patient with a mongo Patient
-	 * @param patientMongo
-	 */
-	public Patient(PatientMongo patientMongo){
-		this.id = patientMongo.id_ext;
-		this.name =  patientMongo.name;
-		this.login = patientMongo.login;
-		this.birthDate = patientMongo.birthDate;
-		this.bloodType = patientMongo.bloodType;
-		this.heightCm = patientMongo.heightCm;
-		this.weightGr = patientMongo.weightGr;
-		this.active = patientMongo.active;
 	}
 
 	public Integer getId() {

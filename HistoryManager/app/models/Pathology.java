@@ -2,7 +2,6 @@ package models;
 
 import com.avaje.ebean.Model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import models.mongo.PathologyMongo;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -33,23 +32,11 @@ public class Pathology extends Model implements Serializable{
     private List<Patient> patients;
 
     public static Finder<Integer, Pathology> find = new Finder<Integer,Pathology>(Pathology.class);
-    public static Finder<Integer, Pathology> findH2 = new Finder<Integer,Pathology>(Pathology.class);
 
     public Pathology(Integer id, String name, Integer triage) {
         this.id = id;
         this.name = name;
         this.triage = triage;
-    }
-
-    /**
-     * builds a resourse pathology with a mongo pathology
-     * @param pathologyMongo
-     */
-    public Pathology(PathologyMongo pathologyMongo){
-
-        this.id = pathologyMongo.id_ext;
-        this.name = pathologyMongo.name;
-        this.triage = pathologyMongo.triage;
     }
 
     public Integer getId() {

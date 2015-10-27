@@ -4,8 +4,6 @@ import com.avaje.ebean.Ebean;
 import com.avaje.ebean.EbeanServer;
 import com.fasterxml.jackson.databind.JsonNode;
 import models.*;
-import models.mongo.*;
-import models.mongo.business.MedicalHistoryMongoBusiness;
 import persistence.IMedicalHistoryDao;
 import persistence.impl.MedicalHistoryDaoImpl;
 import play.libs.Json;
@@ -19,7 +17,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Medical history controller
+ * Medical history controller for non emergency medical histories requests
  *
  * @author Sebastian Gamba Pinilla
  */
@@ -39,18 +37,12 @@ public class MedicalHistoryController extends Controller {
             return badRequest("Invalid input parameters");
         }
 
-        MedicalHistoryMongo medicalHistoryMongo = MedicalHistoryMongoBusiness.findByPatientId(id);
-        if(medicalHistoryMongo == null){
+        final MedicalHistory medicalHistory = historyDao.obtainMedicalHistoryByPatientId(id);
+        if(medicalHistory == null){
             return noContent();
         }
 
-        MedicalHistory history = mapToMedicalHistory(medicalHistoryMongo);
-
-        final MedicalHistory inMemoryHistory = historyDao.obtainMedicalHistoryByPatientId(history.getPatient().getId());
-
-        addInMemoryInformation(history, inMemoryHistory);
-
-        return ok(Json.toJson(history));
+        return ok(Json.toJson(medicalHistory));
     }
 
     /**
@@ -101,98 +93,6 @@ public class MedicalHistoryController extends Controller {
         return ok("Database filled");
     }
 
-    public Result deleteAll(){
-        List<MedicalProcedure> medicalProcedures = MedicalProcedure.findH2.all();
-        for(MedicalProcedure medicalProcedure : medicalProcedures){
-            medicalProcedure.delete();
-        }
-
-        List<DiagnosticImage> diagnosticImages = DiagnosticImage.findH2.all();
-        for(DiagnosticImage diagnosticImage : diagnosticImages){
-            diagnosticImage.delete();
-        }
-
-        List<Allergy> allergies = Allergy.findH2.all();
-        for(Allergy allergy : allergies){
-            allergy.setPatients(new ArrayList<>());
-            allergy.save();
-            allergy.delete();
-        }
-
-        List<Pathology> pathologies = Pathology.findH2.all();
-        for(Pathology pathology : pathologies){
-            pathology.setPatients(new ArrayList<>());
-            pathology.save();
-            pathology.delete();
-        }
-
-        List<Patient> patients = Patient.findH2.all();
-        for(Patient patient : patients){
-            patient.delete();
-        }
-
-        return ok("Data clean");
-    }
-
-    /**
-     * Adds the information in memory to the batch history
-     *
-     * @param patientMedicalHistory
-     * @param inMemoryMedicalHistory
-     */
-    private void addInMemoryInformation(MedicalHistory patientMedicalHistory, MedicalHistory inMemoryMedicalHistory){
-        patientMedicalHistory.getAllergies().addAll(inMemoryMedicalHistory.getAllergies());
-        patientMedicalHistory.getDiagnosticImages().addAll(inMemoryMedicalHistory.getDiagnosticImages());
-        patientMedicalHistory.getMedicalProcedures().addAll(inMemoryMedicalHistory.getMedicalProcedures());
-        patientMedicalHistory.getPathologies().addAll(inMemoryMedicalHistory.getPathologies());
-    }
-
-    /**
-     * Maps a mongo medical history to a resource medical history
-     * @param medicalHistoryMongo
-     * @return
-     */
-    private MedicalHistory mapToMedicalHistory(MedicalHistoryMongo medicalHistoryMongo){
-        MedicalHistory history = new MedicalHistory();
-
-        final Patient patient = new Patient(medicalHistoryMongo.patient);
-        history.setPatient(patient);
-
-        if(medicalHistoryMongo.allergies != null){
-            List<Allergy> allergies = new ArrayList<>();
-            for(AllergyMongo allergyMongo : medicalHistoryMongo.allergies){
-                allergies.add(new Allergy(allergyMongo));
-            }
-            history.setAllergies(allergies);
-        }
-
-        if(medicalHistoryMongo.pathologies != null){
-            List<Pathology> pathologies = new ArrayList<>();
-            for(PathologyMongo pathologyMongo : medicalHistoryMongo.pathologies){
-                pathologies.add(new Pathology(pathologyMongo));
-            }
-            history.setPathologies(pathologies);
-        }
-
-        if(medicalHistoryMongo.diagnosticImages != null){
-            List<DiagnosticImage> diagnosticImages = new ArrayList<>();
-            for(DiagnosticImageMongo diagnosticImageMongo : medicalHistoryMongo.diagnosticImages){
-                diagnosticImages.add(new DiagnosticImage(diagnosticImageMongo));
-            }
-            history.setDiagnosticImages(diagnosticImages);
-        }
-
-        if(medicalHistoryMongo.medicalProcedures != null){
-            List<MedicalProcedure> medicalProcedures = new ArrayList<>();
-            for(MedicalProcedureMongo medicalProcedureMongo : medicalHistoryMongo.medicalProcedures){
-                medicalProcedures.add(new MedicalProcedure(medicalProcedureMongo));
-            }
-            history.setMedicalProcedures(medicalProcedures);
-        }
-
-        return history;
-    }
-
     /**
      * Stores a patient in memory database and postgres
      * @return
@@ -207,12 +107,6 @@ public class MedicalHistoryController extends Controller {
             patient = medicalHistory.getPatient();
         }
 
-        
-        
-        
-        
-       
-        
         List<Pathology> patientPathologies = medicalHistory.getPathologies();
         List<Allergy> patientAllergies = medicalHistory.getAllergies();
         List<MedicalProcedure> patientMedicalProcedures = medicalHistory.getMedicalProcedures();

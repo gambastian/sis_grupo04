@@ -2,7 +2,6 @@ package models;
 
 import com.avaje.ebean.Model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import models.mongo.DiagnosticImageMongo;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -30,8 +29,7 @@ public class DiagnosticImage extends Model implements Serializable {
     @Column(name = "date")
     private Date date;
 
-    public static Finder<Integer, DiagnosticImage> find = new Finder<Integer,DiagnosticImage>("secundary", Integer.class, DiagnosticImage.class);
-    public static Finder<Integer, DiagnosticImage> findH2 = new Finder<Integer,DiagnosticImage>(DiagnosticImage.class);
+    public static Finder<Integer, DiagnosticImage> find = new Finder<Integer,DiagnosticImage>(DiagnosticImage.class);
 
     public DiagnosticImage(Integer id, String name, Patient patient, String type, Date date) {
         this.id = id;
@@ -46,18 +44,6 @@ public class DiagnosticImage extends Model implements Serializable {
         this.name = name;
         this.type = type;
         this.date = date;
-    }
-
-    /**
-     * builds a resource diagnostic image from a mongo diagnostic image
-     * @param diagnosticImageMongo
-     */
-    public DiagnosticImage(DiagnosticImageMongo diagnosticImageMongo){
-
-        this.id = diagnosticImageMongo.id_ext;
-        this.name = diagnosticImageMongo.name;
-        this.type = diagnosticImageMongo.type;
-        this.date = diagnosticImageMongo.date;
     }
 
     public Integer getId() {

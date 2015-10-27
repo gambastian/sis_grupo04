@@ -4,13 +4,9 @@
 
 # Home page
 GET    /patient/:id                @controllers.MedicalHistoryController.getPatientHistory(id: Integer)
-GET    /patientMongo/:id           @controllers.ScheduleToMongo.getPatientHistory(id: Integer)
 POST   /load                       @controllers.MedicalHistoryController.fillDatabase
 POST   /delete                     @controllers.MedicalHistoryController.deleteAll
 POST   /patient                    @controllers.MedicalHistoryController.savePatient
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
-
-#Cron
-GET 	/execute					@controllers.ScheduleToMongo.execute()

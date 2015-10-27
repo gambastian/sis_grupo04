@@ -2,7 +2,6 @@ package models;
 
 import com.avaje.ebean.Model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import models.mongo.AllergyMongo;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -32,21 +31,11 @@ public class Allergy extends Model implements Serializable{
         inverseJoinColumns = @JoinColumn(name = "allergy_id", referencedColumnName = "id"))
     private List<Patient> patients;
 
-    public static Finder<Integer, Allergy> find = new Finder<Integer,Allergy>("secundary", Integer.class, Allergy.class);
-    public static Finder<Integer, Allergy> findH2 = new Finder<Integer,Allergy>(Allergy.class);
+    public static Finder<Integer, Allergy> find = new Finder<Integer,Allergy>(Allergy.class);
 
     public Allergy(Integer id, String name) {
         this.id = id;
         this.name = name;
-    }
-
-    /**
-     * builds an allergy resource from a mongo allergy
-     * @param allergyMongo
-     */
-    public Allergy(AllergyMongo allergyMongo){
-        this.id = allergyMongo.id_ext;
-        this.name = allergyMongo.name;
     }
 
     public Integer getId() {
