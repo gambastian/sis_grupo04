@@ -117,12 +117,12 @@ public class MedicalHistoryController extends Controller {
         patient.setMedicalProcedures(patientMedicalProcedures);
         patient.setDiagnosticImages(patientDiagnosticImages);
 
-        /*EbeanServer defaultServer = Ebean.getServer("default");
+        EbeanServer defaultServer = Ebean.getServer("default");
         defaultServer.beginTransaction();
         defaultServer.save(patient);
-        defaultServer.commitTransaction(); */
+        defaultServer.commitTransaction();
 
-        EbeanServer secondary = Ebean.getServer("secundary");
+        EbeanServer secondary = Ebean.getServer("fast");
         secondary.beginTransaction(); 
         secondary.save(patient);
         secondary.commitTransaction(); 
