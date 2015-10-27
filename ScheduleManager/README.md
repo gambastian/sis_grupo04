@@ -14,15 +14,15 @@ Proyecto para gestión de citas
  * Agenda una cita medica
    **Ej:** POST http://localhost:9000/appointment
    
-   >{
-     "appointmentId" : "1",
-     "patient" : "123456789",
-     "doctorId" : "1",
-     "specialityId" : "2",
-     "address" : "Clinica palermo",
-     "time" : "2015-12-01 08:30:00",
-     "insuranceId" : "2"
-   }
+   ><p>{</p>
+     <p>"appointmentId" : "1",</p>
+     <p>"patient" : "123456789",</p>
+     <p>"doctorId" : "1",</p>
+     <p>"specialityId" : "2",</p>
+     <p>"address" : "Clinica palermo",</p>
+     <p>"time" : "2015-12-01 08:30:00",</p>
+     <p>"insuranceId" : "2"</p>
+   <p>}</p>
    
 
 ## BONUS
