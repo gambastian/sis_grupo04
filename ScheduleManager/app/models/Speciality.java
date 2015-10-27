@@ -1,10 +1,10 @@
 package models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 
 /**
@@ -21,6 +21,11 @@ public class Speciality implements Serializable{
     private String id;
     @Column(name = "name")
     private String name;
+    @ManyToMany
+    @JoinTable(name = "doctor_speciality",
+            joinColumns = @JoinColumn(name = "speciality_id", referencedColumnName = "speciality_id"),
+            inverseJoinColumns = @JoinColumn(name = "doctor_id", referencedColumnName = "doctor_id"))
+    private List<Doctor> doctors;
 
     public String getId() {
         return id;
@@ -36,5 +41,14 @@ public class Speciality implements Serializable{
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @JsonIgnore
+    public List<Doctor> getDoctors() {
+        return doctors;
+    }
+
+    public void setDoctors(List<Doctor> doctors) {
+        this.doctors = doctors;
     }
 }

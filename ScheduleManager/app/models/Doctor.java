@@ -1,5 +1,7 @@
 package models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -18,8 +20,7 @@ public class Doctor implements Serializable{
     private String id;
     @Column(name = "name")
     private String name;
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name="speciality_id", referencedColumnName="doctor_id")
+    @ManyToMany(mappedBy = "doctors")
     private List<Speciality> specialities;
     @ManyToMany(mappedBy="doctors")
     private List<Insurance> afiliatedInsurances;
@@ -54,6 +55,7 @@ public class Doctor implements Serializable{
         this.defaultAddress = defaultAddress;
     }
 
+    @JsonIgnore
     public List<Insurance> getAfiliatedInsurances() {
         return afiliatedInsurances;
     }
