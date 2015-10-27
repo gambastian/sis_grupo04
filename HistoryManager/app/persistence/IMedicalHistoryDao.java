@@ -10,5 +10,4 @@ import models.MedicalHistory;
 public interface IMedicalHistoryDao {
 
     MedicalHistory obtainMedicalHistoryByPatientId(Integer patientId);
-    MedicalHistory obtainMedicalHistoryByPatientIdPostgres(Integer patientId);
 }
