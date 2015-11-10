@@ -27,8 +27,8 @@ public class Pathology extends Model implements Serializable{
 
     @ManyToMany
     @JoinTable(name = "patient_pathology",
-            joinColumns = @JoinColumn(name = "pathology_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "patient_id", referencedColumnName = "id"))
+            joinColumns = @JoinColumn(name = "patient_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "pathology_id", referencedColumnName = "id"))
     private List<Patient> patients;
 
     public static Finder<Integer, Pathology> find = new Finder<Integer,Pathology>(Pathology.class);

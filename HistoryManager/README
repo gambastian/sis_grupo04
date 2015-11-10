@@ -2,3 +2,38 @@ This is your new Play application
 =================================
 
 This file will be packaged with your application, when using `activator dist`.
+
+
+Patient creation
+
+{
+	"patient": {
+		"id": "1"
+	},
+	"pathologies": [
+		{"id": "3"},
+		{"id": "1"},
+		{"id": "4"},
+		{"id": "2"},
+		{"id": "5"},
+		{"id": "6"}
+	],
+	"allergies": [
+		{"id": "1"},
+		{"id": "2"},
+		{"id": "3"},
+		{"id": "4"}
+	],
+	"medicalProcedures": [
+		{"name": "Procedimiento 1", "date": "1332132143"},
+		{"name": "Procedimiento 2", "date": "1332132143"},
+		{"name": "Procedimiento 3", "date": "1332132143"}
+	],
+	"diagnosticImages": [
+		{"name": "Imagen 1", "type": "image", "date": "1032132143"},
+		{"name": "Imagen 2", "type": "image", "date": "1332132143"},
+		{"name": "Imagen 3", "type": "image", "date": "1332132143"},
+		{"name": "Imagen 4", "type": "image", "date": "1332132143"},
+		{"name": "Imagen 5", "type": "image", "date": "1332132143"}
+	]
+}
