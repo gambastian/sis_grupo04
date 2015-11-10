@@ -1,0 +1,3 @@
+-- UNINSTALL
+DROP DATABASE sis;
+DROP ROLE sis_role;

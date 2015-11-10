@@ -1,0 +1,28 @@
+New log file opened at Mon Nov 09 21:57:34 COT 2015 by 29918@MacBook-Pro-German.local
+Taking next connection to: 56724
+New client attempting to connect on port: 56725-56724
+  Address = /25.97.23.137:56724
+This client on port 56725 has uuid 5fd6268b-3e54-4f14-9dc8-e2f039667120 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: play-fork-run-5fd6268b-3e54-4f14-9dc8-e2f039667120
+Taking next connection to: 56724
+New client attempting to connect on port: 56733-56724
+  Address = /25.97.23.137:56724
+Handshake exception on socket: 56733
+sbt.impl.ipc.HandshakeException: Unable to perform handshake
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
+	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
+	at sbt.server.SbtServerSocketHandler$$anon$1.run(SbtServerSocketHandler.scala:43)
+Caused by: java.io.EOFException
+	at java.io.DataInputStream.readInt(DataInputStream.java:392)
+	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
+	... 2 more
+Taking next connection to: 56724
+New client attempting to connect on port: 56734-56724
+  Address = /25.97.23.137:56724
+This client on port 56734 has uuid 95090567-fa9b-4245-b711-ca73e868c708 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: play-fork-run-5fd6268b-3e54-4f14-9dc8-e2f039667120, play-fork-run-95090567-fa9b-4245-b711-ca73e868c708
+Taking next connection to: 56724
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 56724

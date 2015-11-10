@@ -1,0 +1,8 @@
+@import models.mongo.AllergyMongo
+@(allergies : List[AllergyMongo])
+
+<h1>Allergias</h1>
+
+@for(allergy <- allergies) {
+  		<p>@allergy.name</p>
+}
