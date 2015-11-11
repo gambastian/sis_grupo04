@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/Ger/Documents/Ger Repos/sis_grupo04/cronSupport/conf/routes
-// @DATE:Mon Nov 09 22:03:04 COT 2015
+// @DATE:Wed Nov 11 15:06:49 COT 2015
 
 import play.api.routing.JavaScriptReverseRoute
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
@@ -15,7 +15,7 @@ import _root_.play.libs.F
 package controllers.javascript {
   import ReverseRouteContext.empty
 
-  // @LINE:12
+  // @LINE:16
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -23,7 +23,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:12
+    // @LINE:16
     def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.versioned",
       """
@@ -44,11 +44,21 @@ package controllers.javascript {
 
   
     // @LINE:8
-    def viewAllergies: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.Application.viewAllergies",
+    def viewDocuments: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Application.viewDocuments",
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + """"})
+        }
+      """
+    )
+  
+    // @LINE:9
+    def checkAndRestore: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Application.checkAndRestore",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "cron"})
         }
       """
     )

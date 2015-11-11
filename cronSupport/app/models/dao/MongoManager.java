@@ -17,7 +17,7 @@ public class MongoManager {
     public static Jongo jongo;
     static {
         try{
-        	String mongoUri = "mongodb://127.0.0.1:27017/mydb";//System.getenv().get("MONGOLAB_URI");
+        	String mongoUri = "mongodb://ec2-52-91-214-191.compute-1.amazonaws.com/supportStorageDB";//System.getenv().get("MONGOLAB_URI");
         	MongoClientURI mongoClientUri = new MongoClientURI(mongoUri);
             mongoClient = new MongoClient(new MongoClientURI(mongoUri));
             jongo = new Jongo(mongoClient.getDB(mongoClientUri.getDatabase()));

@@ -1,8 +1,8 @@
-@import models.mongo.AllergyMongo
-@(allergies : List[AllergyMongo])
+@import models.mongo.Document
+@(documents : List[Document])
 
-<h1>Allergias</h1>
+<h1>Documentos</h1>
 
-@for(allergy <- allergies) {
-  		<p>@allergy.name</p>
+@for(document <- documents) {
+  		<p>@document.content</p>
 }

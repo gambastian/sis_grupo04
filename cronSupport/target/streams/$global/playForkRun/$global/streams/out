@@ -107,7 +107,7 @@
 [0m[[0minfo[0m] [0mResolving org.jongo#jongo;1.2 ...[0m
 [0m[[0minfo[0m] [0mResolving de.undercouch#bson4jackson;2.4.0 ...[0m
 [0m[[0minfo[0m] [0mResolving org.mongodb#mongo-java-driver;3.0.4 ...[0m
-[0m[[0minfo[0m] [0mResolving org.postgresql#postgresql;9.2-1003-jdbc4 ...[0m
+[0m[[0minfo[0m] [0mResolving org.json#org.json;chargebee-1.0 ...[0m
 [0m[[0minfo[0m] [0mResolving com.typesafe.play#play-test_2.11;2.4.3 ...[0m
 [0m[[0minfo[0m] [0mResolving junit#junit;4.12 ...[0m
 [0m[[0minfo[0m] [0mResolving org.hamcrest#hamcrest-core;1.3 ...[0m
@@ -194,145 +194,23 @@
 [0m[[0minfo[0m] [0m[0m
 [0m[[0minfo[0m] [0m[32m(Server started, use Ctrl+D to stop and go back to the console...)[0m[0m
 [0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0mCompiling 6 Scala sources and 5 Java sources to /Users/Ger/Documents/Ger Repos/sis_grupo04/cronSupport/target/scala-2.11/classes...[0m
-[0m[[31merror[0m] [0m/Users/Ger/Documents/Ger Repos/sis_grupo04/cronSupport/app/controllers/Application.java:7: `;' expected but `import' found.[0m
-[0m[[31merror[0m] [0mimport models.AllergyMongo[0m
-[0m[[31merror[0m] [0m^[0m
-[0m[[31merror[0m] [0mone error found[0m
-[0m[[31merror[0m] [0mapplication - [0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0m! @6o4di7odl - Internal server error, for (GET) [/] ->[0m
-[0m[[0minfo[0m] [0m [0m
-[0m[[0minfo[0m] [0mplay.forkrun.protocol.Serializers$playExceptionPickler$$anon$1: Compilation error[`;' expected but `import' found.][0m
-[0m[[0minfo[0m] [0m	at play.forkrun.protocol.Serializers$playExceptionPickler$.unpickle(Serializers.scala:159) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at play.forkrun.protocol.Serializers$PlayRunsupportReloaderCompileFailureUnpickler$macro$56$2$.unpickle(Serializers.scala:175) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at play.forkrun.protocol.Serializers$PlayRunsupportReloaderCompileResultUnpickler$macro$66$2$.unpickle(Serializers.scala:181) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at scala.pickling.Unpickler$class.unpickleEntry(Pickler.scala:79) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at play.forkrun.protocol.Serializers$PlayRunsupportReloaderCompileResultUnpickler$macro$66$2$.unpickleEntry(Serializers.scala:181) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at scala.pickling.functions$.unpickle(functions.scala:11) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at sbt.serialization.JsonValue$$anonfun$parse$1.apply(SerializedValue.scala:104) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at scala.util.Try$.apply(Try.scala:191) ~[scala-library-2.11.6.jar:na][0m
-[0m[[0minfo[0m] [0m	at sbt.serialization.JsonValue.parse(SerializedValue.scala:104) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at sbt.protocol.BuildValue.value(Values.scala:11) ~[na:na][0m
-[0m[[0minfo[0m] [0mCompiling 6 Scala sources and 5 Java sources to /Users/Ger/Documents/Ger Repos/sis_grupo04/cronSupport/target/scala-2.11/classes...[0m
-[0m[[31merror[0m] [0m/Users/Ger/Documents/Ger Repos/sis_grupo04/cronSupport/app/controllers/Application.java:16:  java.lang.String cannot be converted to java.util.List<models.mongo.AllergyMongo>[0m
-[0m[[31merror[0m] [0m"Hola mundo."[0m
-[0m[[31merror[0m] [0m/Users/Ger/Documents/Ger Repos/sis_grupo04/cronSupport/app/controllers/Application.java:21:  java.lang.String cannot be converted to java.util.List<models.mongo.AllergyMongo>[0m
-[0m[[31merror[0m] [0m"Hola Mundo"[0m
-[0m[[0minfo[0m] [0m/Users/Ger/Documents/Ger Repos/sis_grupo04/cronSupport/app/models/dao/MongoManager.java: /Users/Ger/Documents/Ger Repos/sis_grupo04/cronSupport/app/models/dao/MongoManager.java uses or overrides a deprecated API.[0m
-[0m[[0minfo[0m] [0m/Users/Ger/Documents/Ger Repos/sis_grupo04/cronSupport/app/models/dao/MongoManager.java: Recompile with -Xlint:deprecation for details.[0m
-[0m[[0minfo[0m] [0mSome messages have been simplified; recompile with -Xdiags:verbose to get full output[0m
-[0m[[31merror[0m] [0mapplication - [0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0m! @6o4dia3i3 - Internal server error, for (GET) [/] ->[0m
-[0m[[0minfo[0m] [0m [0m
-[0m[[0minfo[0m] [0mplay.forkrun.protocol.Serializers$playExceptionPickler$$anon$1: Compilation error[ java.lang.String cannot be converted to java.util.List<models.mongo.AllergyMongo>][0m
-[0m[[0minfo[0m] [0m	at play.forkrun.protocol.Serializers$playExceptionPickler$.unpickle(Serializers.scala:159) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at play.forkrun.protocol.Serializers$PlayRunsupportReloaderCompileFailureUnpickler$macro$56$2$.unpickle(Serializers.scala:175) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at play.forkrun.protocol.Serializers$PlayRunsupportReloaderCompileResultUnpickler$macro$66$2$.unpickle(Serializers.scala:181) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at scala.pickling.Unpickler$class.unpickleEntry(Pickler.scala:79) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at play.forkrun.protocol.Serializers$PlayRunsupportReloaderCompileResultUnpickler$macro$66$2$.unpickleEntry(Serializers.scala:181) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at scala.pickling.functions$.unpickle(functions.scala:11) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at sbt.serialization.JsonValue$$anonfun$parse$1.apply(SerializedValue.scala:104) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at scala.util.Try$.apply(Try.scala:191) ~[scala-library-2.11.6.jar:na][0m
-[0m[[0minfo[0m] [0m	at sbt.serialization.JsonValue.parse(SerializedValue.scala:104) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at sbt.protocol.BuildValue.value(Values.scala:11) ~[na:na][0m
-[0m[[0minfo[0m] [0mCompiling 6 Scala sources and 5 Java sources to /Users/Ger/Documents/Ger Repos/sis_grupo04/cronSupport/target/scala-2.11/classes...[0m
-[0m[[31merror[0m] [0m/Users/Ger/Documents/Ger Repos/sis_grupo04/cronSupport/app/controllers/Application.java:16:  java.lang.String cannot be converted to java.util.List<models.mongo.AllergyMongo>[0m
-[0m[[31merror[0m] [0m"Hola mundo."[0m
-[0m[[31merror[0m] [0m/Users/Ger/Documents/Ger Repos/sis_grupo04/cronSupport/app/controllers/Application.java:21:  java.lang.String cannot be converted to java.util.List<models.mongo.AllergyMongo>[0m
-[0m[[31merror[0m] [0m"Hola Mundo"[0m
-[0m[[0minfo[0m] [0m/Users/Ger/Documents/Ger Repos/sis_grupo04/cronSupport/app/models/dao/MongoManager.java: /Users/Ger/Documents/Ger Repos/sis_grupo04/cronSupport/app/models/dao/MongoManager.java uses or overrides a deprecated API.[0m
-[0m[[0minfo[0m] [0m/Users/Ger/Documents/Ger Repos/sis_grupo04/cronSupport/app/models/dao/MongoManager.java: Recompile with -Xlint:deprecation for details.[0m
-[0m[[0minfo[0m] [0mSome messages have been simplified; recompile with -Xdiags:verbose to get full output[0m
-[0m[[31merror[0m] [0mapplication - [0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0m! @6o4dih0je - Internal server error, for (GET) [/] ->[0m
-[0m[[0minfo[0m] [0m [0m
-[0m[[0minfo[0m] [0mplay.forkrun.protocol.Serializers$playExceptionPickler$$anon$1: Compilation error[ java.lang.String cannot be converted to java.util.List<models.mongo.AllergyMongo>][0m
-[0m[[0minfo[0m] [0m	at play.forkrun.protocol.Serializers$playExceptionPickler$.unpickle(Serializers.scala:159) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at play.forkrun.protocol.Serializers$PlayRunsupportReloaderCompileFailureUnpickler$macro$56$2$.unpickle(Serializers.scala:175) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at play.forkrun.protocol.Serializers$PlayRunsupportReloaderCompileResultUnpickler$macro$66$2$.unpickle(Serializers.scala:181) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at scala.pickling.Unpickler$class.unpickleEntry(Pickler.scala:79) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at play.forkrun.protocol.Serializers$PlayRunsupportReloaderCompileResultUnpickler$macro$66$2$.unpickleEntry(Serializers.scala:181) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at scala.pickling.functions$.unpickle(functions.scala:11) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at sbt.serialization.JsonValue$$anonfun$parse$1.apply(SerializedValue.scala:104) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at scala.util.Try$.apply(Try.scala:191) ~[scala-library-2.11.6.jar:na][0m
-[0m[[0minfo[0m] [0m	at sbt.serialization.JsonValue.parse(SerializedValue.scala:104) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at sbt.protocol.BuildValue.value(Values.scala:11) ~[na:na][0m
-[0m[[0minfo[0m] [0mCompiling 6 Scala sources and 5 Java sources to /Users/Ger/Documents/Ger Repos/sis_grupo04/cronSupport/target/scala-2.11/classes...[0m
-[0m[[31merror[0m] [0m/Users/Ger/Documents/Ger Repos/sis_grupo04/cronSupport/app/controllers/Application.java:14: identifier expected but `public' found.[0m
-[0m[[31merror[0m] [0mpublic class Application extends Controller {[0m
-[0m[[31merror[0m] [0m^[0m
-[0m[[31merror[0m] [0m/Users/Ger/Documents/Ger Repos/sis_grupo04/cronSupport/app/controllers/Application.java:35: `;' expected but eof found.[0m
-[0m[[31merror[0m] [0m}[0m
-[0m[[31merror[0m] [0m ^[0m
-[0m[[31merror[0m] [0mtwo errors found[0m
-[0m[[31merror[0m] [0mapplication - [0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0m! @6o4dijdcc - Internal server error, for (GET) [/] ->[0m
-[0m[[0minfo[0m] [0m [0m
-[0m[[0minfo[0m] [0mplay.forkrun.protocol.Serializers$playExceptionPickler$$anon$1: Compilation error[identifier expected but `public' found.][0m
-[0m[[0minfo[0m] [0m	at play.forkrun.protocol.Serializers$playExceptionPickler$.unpickle(Serializers.scala:159) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at play.forkrun.protocol.Serializers$PlayRunsupportReloaderCompileFailureUnpickler$macro$56$2$.unpickle(Serializers.scala:175) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at play.forkrun.protocol.Serializers$PlayRunsupportReloaderCompileResultUnpickler$macro$66$2$.unpickle(Serializers.scala:181) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at scala.pickling.Unpickler$class.unpickleEntry(Pickler.scala:79) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at play.forkrun.protocol.Serializers$PlayRunsupportReloaderCompileResultUnpickler$macro$66$2$.unpickleEntry(Serializers.scala:181) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at scala.pickling.functions$.unpickle(functions.scala:11) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at sbt.serialization.JsonValue$$anonfun$parse$1.apply(SerializedValue.scala:104) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at scala.util.Try$.apply(Try.scala:191) ~[scala-library-2.11.6.jar:na][0m
-[0m[[0minfo[0m] [0m	at sbt.serialization.JsonValue.parse(SerializedValue.scala:104) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at sbt.protocol.BuildValue.value(Values.scala:11) ~[na:na][0m
-[0m[[0minfo[0m] [0mCompiling 6 Scala sources and 5 Java sources to /Users/Ger/Documents/Ger Repos/sis_grupo04/cronSupport/target/scala-2.11/classes...[0m
-[0m[[31merror[0m] [0m/Users/Ger/Documents/Ger Repos/sis_grupo04/cronSupport/app/controllers/Application.java:17:  java.lang.String cannot be converted to java.util.List<models.mongo.AllergyMongo>[0m
-[0m[[31merror[0m] [0m"Hola mundo."[0m
-[0m[[31merror[0m] [0m/Users/Ger/Documents/Ger Repos/sis_grupo04/cronSupport/app/controllers/Application.java:22:  java.lang.String cannot be converted to java.util.List<models.mongo.AllergyMongo>[0m
-[0m[[31merror[0m] [0m"Hola Mundo"[0m
-[0m[[0minfo[0m] [0m/Users/Ger/Documents/Ger Repos/sis_grupo04/cronSupport/app/models/dao/MongoManager.java: /Users/Ger/Documents/Ger Repos/sis_grupo04/cronSupport/app/models/dao/MongoManager.java uses or overrides a deprecated API.[0m
-[0m[[0minfo[0m] [0m/Users/Ger/Documents/Ger Repos/sis_grupo04/cronSupport/app/models/dao/MongoManager.java: Recompile with -Xlint:deprecation for details.[0m
-[0m[[0minfo[0m] [0mSome messages have been simplified; recompile with -Xdiags:verbose to get full output[0m
-[0m[[31merror[0m] [0mapplication - [0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0m! @6o4diko0k - Internal server error, for (GET) [/] ->[0m
-[0m[[0minfo[0m] [0m [0m
-[0m[[0minfo[0m] [0mplay.forkrun.protocol.Serializers$playExceptionPickler$$anon$1: Compilation error[ java.lang.String cannot be converted to java.util.List<models.mongo.AllergyMongo>][0m
-[0m[[0minfo[0m] [0m	at play.forkrun.protocol.Serializers$playExceptionPickler$.unpickle(Serializers.scala:159) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at play.forkrun.protocol.Serializers$PlayRunsupportReloaderCompileFailureUnpickler$macro$56$2$.unpickle(Serializers.scala:175) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at play.forkrun.protocol.Serializers$PlayRunsupportReloaderCompileResultUnpickler$macro$66$2$.unpickle(Serializers.scala:181) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at scala.pickling.Unpickler$class.unpickleEntry(Pickler.scala:79) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at play.forkrun.protocol.Serializers$PlayRunsupportReloaderCompileResultUnpickler$macro$66$2$.unpickleEntry(Serializers.scala:181) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at scala.pickling.functions$.unpickle(functions.scala:11) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at sbt.serialization.JsonValue$$anonfun$parse$1.apply(SerializedValue.scala:104) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at scala.util.Try$.apply(Try.scala:191) ~[scala-library-2.11.6.jar:na][0m
-[0m[[0minfo[0m] [0m	at sbt.serialization.JsonValue.parse(SerializedValue.scala:104) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at sbt.protocol.BuildValue.value(Values.scala:11) ~[na:na][0m
-[0m[[0minfo[0m] [0mCompiling 6 Scala sources and 5 Java sources to /Users/Ger/Documents/Ger Repos/sis_grupo04/cronSupport/target/scala-2.11/classes...[0m
-[0m[[31merror[0m] [0m/Users/Ger/Documents/Ger Repos/sis_grupo04/cronSupport/app/controllers/Application.java:25:  java.lang.String cannot be converted to java.util.List<models.mongo.AllergyMongo>[0m
-[0m[[31merror[0m] [0m"Hola Mundo"[0m
-[0m[[0minfo[0m] [0m/Users/Ger/Documents/Ger Repos/sis_grupo04/cronSupport/app/models/dao/MongoManager.java: /Users/Ger/Documents/Ger Repos/sis_grupo04/cronSupport/app/models/dao/MongoManager.java uses or overrides a deprecated API.[0m
-[0m[[0minfo[0m] [0m/Users/Ger/Documents/Ger Repos/sis_grupo04/cronSupport/app/models/dao/MongoManager.java: Recompile with -Xlint:deprecation for details.[0m
-[0m[[0minfo[0m] [0mSome messages have been simplified; recompile with -Xdiags:verbose to get full output[0m
-[0m[[31merror[0m] [0mapplication - [0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0m! @6o4dilaao - Internal server error, for (GET) [/] ->[0m
-[0m[[0minfo[0m] [0m [0m
-[0m[[0minfo[0m] [0mplay.forkrun.protocol.Serializers$playExceptionPickler$$anon$1: Compilation error[ java.lang.String cannot be converted to java.util.List<models.mongo.AllergyMongo>][0m
-[0m[[0minfo[0m] [0m	at play.forkrun.protocol.Serializers$playExceptionPickler$.unpickle(Serializers.scala:159) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at play.forkrun.protocol.Serializers$PlayRunsupportReloaderCompileFailureUnpickler$macro$56$2$.unpickle(Serializers.scala:175) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at play.forkrun.protocol.Serializers$PlayRunsupportReloaderCompileResultUnpickler$macro$66$2$.unpickle(Serializers.scala:181) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at scala.pickling.Unpickler$class.unpickleEntry(Pickler.scala:79) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at play.forkrun.protocol.Serializers$PlayRunsupportReloaderCompileResultUnpickler$macro$66$2$.unpickleEntry(Serializers.scala:181) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at scala.pickling.functions$.unpickle(functions.scala:11) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at sbt.serialization.JsonValue$$anonfun$parse$1.apply(SerializedValue.scala:104) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at scala.util.Try$.apply(Try.scala:191) ~[scala-library-2.11.6.jar:na][0m
-[0m[[0minfo[0m] [0m	at sbt.serialization.JsonValue.parse(SerializedValue.scala:104) ~[na:na][0m
-[0m[[0minfo[0m] [0m	at sbt.protocol.BuildValue.value(Values.scala:11) ~[na:na][0m
-[0m[[0minfo[0m] [0mCompiling 6 Scala sources and 5 Java sources to /Users/Ger/Documents/Ger Repos/sis_grupo04/cronSupport/target/scala-2.11/classes...[0m
-[0m[[0minfo[0m] [0m/Users/Ger/Documents/Ger Repos/sis_grupo04/cronSupport/app/models/dao/MongoManager.java: /Users/Ger/Documents/Ger Repos/sis_grupo04/cronSupport/app/models/dao/MongoManager.java uses or overrides a deprecated API.[0m
-[0m[[0minfo[0m] [0m/Users/Ger/Documents/Ger Repos/sis_grupo04/cronSupport/app/models/dao/MongoManager.java: Recompile with -Xlint:deprecation for details.[0m
+[0m[[0minfo[0m] [0mCompiling 2 Java sources to /Users/Ger/Documents/Ger Repos/sis_grupo04/cronSupport/target/scala-2.11/classes...[0m
 [0m[[0minfo[0m] [0m- play.api.Play - Application started (Dev)[0m
-[0m[[0minfo[0m] [0mDB:mydb[0m
-[0m[[0minfo[0m] [0mCreated jongoorg.jongo.Jongo@75357442[0m
+[0m[[0minfo[0m] [0mDB:supportStorageDB[0m
+[0m[[0minfo[0m] [0mCreated jongoorg.jongo.Jongo@4d7e0caf[0m
+[0m[[0minfo[0m] [0m- application - 200[0m
+[0m[[0minfo[0m] [0mProblema devolviendo la información[0m
+[0m[[0minfo[0m] [0mok[0m
+[0m[[0minfo[0m] [0mElemento restaurado ID: 564359a6e4b0f204fa3c7cd9[0m
+[0m[[0minfo[0m] [0mElemento restaurado ID: {"patient":{"name":"german test","heightCm":"234234","weightGr":"324234","active":"false","id":"47","login":"german1","bloodType":"o-","birthDate":"34234"}}[0m
+[0m[[0minfo[0m] [0mok[0m
+[0m[[0minfo[0m] [0mElemento restaurado ID: 56438b82e4b0f204fa3c7cda[0m
+[0m[[0minfo[0m] [0mElemento restaurado ID: {"patient":{"name":"User42","heightCm":"180","weightGr":"90","active":"true","id":"42","login":"User42","bloodType":"o+","birthDate":"1987-02-01"}}[0m
+[0m[[0minfo[0m] [0mok[0m
+[0m[[0minfo[0m] [0mElemento restaurado ID: 56438bd3e4b0f204fa3c7cdb[0m
+[0m[[0minfo[0m] [0mElemento restaurado ID: {"patient":{"name":"User42","heightCm":"170","weightGr":"70","active":"false","id":"42","login":"User42","bloodType":"a-","birthDate":"1980-02-01"}}[0m
+[0m[[0minfo[0m] [0mok[0m
+[0m[[0minfo[0m] [0mHabían datos en la DB de soporte, y ya se han restaurado[0m
 [0m[[0minfo[0m] [0mJVM exiting, shutting down Play fork run ...[0m
 [0m[[0minfo[0m] [0mStopping Play fork run ...[0m
 [0m[[0minfo[0m] [0mPlay fork run already stopped ...[0m

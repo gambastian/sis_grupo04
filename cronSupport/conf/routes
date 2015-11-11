@@ -5,8 +5,12 @@
 # Home page
 
 #Cron
-GET 	/						@controllers.Application.viewAllergies()
+GET 	/						@controllers.Application.viewDocuments()
+GET		/cron 					@controllers.Application.checkAndRestore()
+#GET		/ping					@controllers.Application.pingTest()
+#GET 	/sendDB					@controllers.Application.sendDB()		
 #GET 	/hello					@controllers.Application.sayHello()
+
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

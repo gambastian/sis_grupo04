@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/Ger/Documents/Ger Repos/sis_grupo04/cronSupport/conf/routes
-// @DATE:Mon Nov 09 22:03:04 COT 2015
+// @DATE:Wed Nov 11 15:06:49 COT 2015
 
 package router
 
@@ -18,7 +18,7 @@ class Routes(
   override val errorHandler: play.api.http.HttpErrorHandler, 
   // @LINE:8
   Application_1: javax.inject.Provider[controllers.Application],
-  // @LINE:12
+  // @LINE:16
   Assets_0: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
@@ -27,7 +27,7 @@ class Routes(
    def this(errorHandler: play.api.http.HttpErrorHandler,
     // @LINE:8
     Application_1: javax.inject.Provider[controllers.Application],
-    // @LINE:12
+    // @LINE:16
     Assets_0: controllers.Assets
   ) = this(errorHandler, Application_1, Assets_0, "/")
 
@@ -43,7 +43,8 @@ class Routes(
   }
 
   def documentation = List(
-    ("""GET""", this.prefix, """@controllers.Application@.viewAllergies()"""),
+    ("""GET""", this.prefix, """@controllers.Application@.viewDocuments()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """cron""", """@controllers.Application@.checkAndRestore()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""", """controllers.Assets.versioned(path:String = "/public", file:Asset)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -53,15 +54,15 @@ class Routes(
 
 
   // @LINE:8
-  private[this] lazy val controllers_Application_viewAllergies0_route = Route("GET",
+  private[this] lazy val controllers_Application_viewDocuments0_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix)))
   )
-  private[this] lazy val controllers_Application_viewAllergies0_invoker = createInvoker(
-    Application_1.get.viewAllergies(),
+  private[this] lazy val controllers_Application_viewDocuments0_invoker = createInvoker(
+    Application_1.get.viewDocuments(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.Application",
-      "viewAllergies",
+      "viewDocuments",
       Nil,
       "GET",
       """Cron""",
@@ -69,11 +70,28 @@ class Routes(
     )
   )
 
-  // @LINE:12
-  private[this] lazy val controllers_Assets_versioned1_route = Route("GET",
+  // @LINE:9
+  private[this] lazy val controllers_Application_checkAndRestore1_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("cron")))
+  )
+  private[this] lazy val controllers_Application_checkAndRestore1_invoker = createInvoker(
+    Application_1.get.checkAndRestore(),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.Application",
+      "checkAndRestore",
+      Nil,
+      "GET",
+      """""",
+      this.prefix + """cron"""
+    )
+  )
+
+  // @LINE:16
+  private[this] lazy val controllers_Assets_versioned2_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_versioned1_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_versioned2_invoker = createInvoker(
     Assets_0.versioned(fakeValue[String], fakeValue[Asset]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -90,15 +108,21 @@ class Routes(
   def routes: PartialFunction[RequestHeader, Handler] = {
   
     // @LINE:8
-    case controllers_Application_viewAllergies0_route(params) =>
+    case controllers_Application_viewDocuments0_route(params) =>
       call { 
-        controllers_Application_viewAllergies0_invoker.call(Application_1.get.viewAllergies())
+        controllers_Application_viewDocuments0_invoker.call(Application_1.get.viewDocuments())
       }
   
-    // @LINE:12
-    case controllers_Assets_versioned1_route(params) =>
+    // @LINE:9
+    case controllers_Application_checkAndRestore1_route(params) =>
+      call { 
+        controllers_Application_checkAndRestore1_invoker.call(Application_1.get.checkAndRestore())
+      }
+  
+    // @LINE:16
+    case controllers_Assets_versioned2_route(params) =>
       call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
-        controllers_Assets_versioned1_invoker.call(Assets_0.versioned(path, file))
+        controllers_Assets_versioned2_invoker.call(Assets_0.versioned(path, file))
       }
   }
 }

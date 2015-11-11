@@ -7,15 +7,15 @@ import org.jongo.MongoCollection;
 import java.util.Date;
 
 /**
- * POJO class to store Allergy's information
+ * POJO class to store Document's information
  *
  * @author Germán Rojas
  */
 
-public class AllergyMongo {
+public class Document {
 
     @JsonProperty("_id")
     public ObjectId id;
-    public Integer id_ext;
-    public String name;
+    public String action;
+    public String content;
 }

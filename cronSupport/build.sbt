@@ -13,7 +13,7 @@ libraryDependencies ++= Seq(
   //Jongo
   "org.jongo" % "jongo" % "1.2",
   "org.mongodb" % "mongo-java-driver" % "3.0.4",
-  "org.postgresql" % "postgresql" % "9.2-1003-jdbc4"
+  "org.json" % "org.json" % "chargebee-1.0"
 )
 
 // Play provides two styles of routers, one expects its actions to be injected, the
