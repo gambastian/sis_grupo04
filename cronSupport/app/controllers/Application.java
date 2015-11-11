@@ -66,7 +66,7 @@ public class Application extends Controller {
 
                         System.out.println("Elemento restaurado ID: " + document.id.toString());
                         System.out.println("Elemento restaurado ID: " + document.content);
-                        //DocumentBusiness.remove(document.id);
+                        DocumentBusiness.remove(document.id);
                     } catch (Exception ex) {
                         System.out.println("Problema devolviendo la información");
                     } finally {

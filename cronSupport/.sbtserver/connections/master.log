@@ -1,29 +1,7 @@
-New log file opened at Wed Nov 11 15:10:41 COT 2015 by 61301@MacBook-Pro-German.local
-Taking next connection to: 64265
-New client attempting to connect on port: 64266-64265
-  Address = /25.97.23.137:64265
-This client on port 64266 has uuid 0ac463f5-2b2d-4bc4-9a55-5f8886c8777c configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
-Connected Clients: play-fork-run-0ac463f5-2b2d-4bc4-9a55-5f8886c8777c
-Taking next connection to: 64265
-New client attempting to connect on port: 64346-64265
-  Address = /25.97.23.137:64265
-Handshake exception on socket: 64346
-sbt.impl.ipc.HandshakeException: Unable to perform handshake
-	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
-	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
-	at sbt.server.SbtServerSocketHandler$$anon$1.run(SbtServerSocketHandler.scala:43)
-Caused by: java.net.SocketException: Connection reset
-	at java.net.SocketInputStream.read(SocketInputStream.java:209)
-	at java.net.SocketInputStream.read(SocketInputStream.java:141)
-	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246)
-	at java.io.BufferedInputStream.read(BufferedInputStream.java:265)
-	at java.io.DataInputStream.readInt(DataInputStream.java:387)
-	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
-	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
-	... 2 more
-Taking next connection to: 64265
-New client attempting to connect on port: 64347-64265
-  Address = /25.97.23.137:64265
-This client on port 64347 has uuid b90a311c-d0bc-4ef1-b857-03ed49ea5e38 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
-Connected Clients: play-fork-run-0ac463f5-2b2d-4bc4-9a55-5f8886c8777c, play-fork-run-b90a311c-d0bc-4ef1-b857-03ed49ea5e38
-Taking next connection to: 64265
+New log file opened at Wed Nov 11 15:37:46 COT 2015 by 63718@MacBook-Pro-German.local
+Taking next connection to: 64685
+New client attempting to connect on port: 64686-64685
+  Address = /25.97.23.137:64685
+This client on port 64686 has uuid 7d3b1b73-beef-41d7-af64-196408ebd4ea configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: play-fork-run-7d3b1b73-beef-41d7-af64-196408ebd4ea
+Taking next connection to: 64685

@@ -194,10 +194,9 @@
 [0m[[0minfo[0m] [0m[0m
 [0m[[0minfo[0m] [0m[32m(Server started, use Ctrl+D to stop and go back to the console...)[0m[0m
 [0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0mCompiling 2 Java sources to /Users/Ger/Documents/Ger Repos/sis_grupo04/cronSupport/target/scala-2.11/classes...[0m
 [0m[[0minfo[0m] [0m- play.api.Play - Application started (Dev)[0m
 [0m[[0minfo[0m] [0mDB:supportStorageDB[0m
-[0m[[0minfo[0m] [0mCreated jongoorg.jongo.Jongo@4d7e0caf[0m
+[0m[[0minfo[0m] [0mCreated jongoorg.jongo.Jongo@46b5872f[0m
 [0m[[0minfo[0m] [0m- application - 200[0m
 [0m[[0minfo[0m] [0mProblema devolviendo la información[0m
 [0m[[0minfo[0m] [0mok[0m
@@ -209,6 +208,9 @@
 [0m[[0minfo[0m] [0mok[0m
 [0m[[0minfo[0m] [0mElemento restaurado ID: 56438bd3e4b0f204fa3c7cdb[0m
 [0m[[0minfo[0m] [0mElemento restaurado ID: {"patient":{"name":"User42","heightCm":"170","weightGr":"70","active":"false","id":"42","login":"User42","bloodType":"a-","birthDate":"1980-02-01"}}[0m
+[0m[[0minfo[0m] [0mok[0m
+[0m[[0minfo[0m] [0mElemento restaurado ID: 5643a56de4b0f204fa3c7cdc[0m
+[0m[[0minfo[0m] [0mElemento restaurado ID: {"patient":{"name":"German Rojas","heightCm":"180","weightGr":"70","active":"true","id":"102","login":"GermanR","bloodType":"o-","birthDate":"1993-07-10"}}[0m
 [0m[[0minfo[0m] [0mok[0m
 [0m[[0minfo[0m] [0mHabían datos en la DB de soporte, y ya se han restaurado[0m
 [0m[[0minfo[0m] [0mJVM exiting, shutting down Play fork run ...[0m
